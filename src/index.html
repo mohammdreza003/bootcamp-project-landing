@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          light: {
+            "primary": "#2C7EF8",
+            "primary-hover": "#075CD9",
+            "on-primary": "#FFFFFF",
+            "on-background": "#191C1E",
+            "about-us-bgcolor": "#EBF3FE",
+            "input-border": "#E6E6E6",
+          },
+          dark: {
+            "primary": "#3A86F8",
+            "primary-hover": "#6BA4FA",
+            "background": "#040810",
+            "on-background": "#E6E9EF",
+            "surface": "#E6E9EF",
+            "a-dark": "#CFCFCF",
+            "a-hover-dark": "#037FFF",
+            "text-color": "#ffffff",
+            "about-bg": "#122549",
+            "card-bg": "#0B192D",
+            "about-me-card": "#0E1E34"
+          }
+        },
+        boxShadow: {
+          "app": "0px 0px 24px 0px rgba(0, 0, 0, 0.05)",
+          "comment": "0px 4px 63px 0px rgba(0, 0, 0, 0.04)"
+        }
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <!-- هدر اینجا تعریف میشه -->
+     <button>dark/light mood</button>
+     <div class="text-center  text-sky-400  dark:bg-gray-800 dark:text-white bg-light-primary-hover-light">hi quera bootcamp</div>
+  </header>
+  <main>
+    <!-- محتوای اصلی صفحه اینجاست -->
+  </main>
+  <footer>
+    <!-- فوتر این قسمت قرار میگیره -->
+  </footer>
+
+
+
+  <script src="./main.js"></script>
+</body>
+</html>
