@@ -1,73 +1,143 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl" class="">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Page</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          light: {
-            "primary": "#2C7EF8",
-            "primary-hover": "#075CD9",
-            "on-primary": "#FFFFFF",
-            "on-background": "#191C1E",
-            "about-us-bgcolor": "#EBF3FE",
-            "input-border": "#E6E6E6",
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              light: {
+                primary: "#2C7EF8",
+                "primary-hover": "#075CD9",
+                "on-primary": "#FFFFFF",
+                "on-background": "#191C1E",
+                "about-us-bgcolor": "#EBF3FE",
+                "input-border": "#E6E6E6",
+              },
+              dark: {
+                primary: "#3A86F8",
+                "primary-hover": "#6BA4FA",
+                background: "#040810",
+                "on-background": "#E6E9EF",
+                surface: "#E6E9EF",
+                "a-dark": "#CFCFCF",
+                "a-hover-dark": "#037FFF",
+                "text-color": "#ffffff",
+                "about-bg": "#122549",
+                "card-bg": "#0B192D",
+                "about-me-card": "#0E1E34",
+              },
+            },
+            boxShadow: {
+              app: "0px 0px 24px 0px rgba(0, 0, 0, 0.05)",
+              comment: "0px 4px 63px 0px rgba(0, 0, 0, 0.04)",
+            },
           },
-          dark: {
-            "primary": "#3A86F8",
-            "primary-hover": "#6BA4FA",
-            "background": "#040810",
-            "on-background": "#E6E9EF",
-            "surface": "#E6E9EF",
-            "a-dark": "#CFCFCF",
-            "a-hover-dark": "#037FFF",
-            "text-color": "#ffffff",
-            "about-bg": "#122549",
-            "card-bg": "#0B192D",
-            "about-me-card": "#0E1E34"
-          }
         },
-        boxShadow: {
-          "app": "0px 0px 24px 0px rgba(0, 0, 0, 0.05)",
-          "comment": "0px 4px 63px 0px rgba(0, 0, 0, 0.04)"
-        }
-      }
-    }
-  }
-  </script>
-</head>
-<body>
-  <header>
+      };
+    </script>
+  </head>
+  <body>
     <!-- هدر اینجا تعریف میشه -->
-     <button>dark/light mood</button>
-     <div class="text-center  text-sky-400  dark:bg-gray-800 dark:text-white bg-light-primary-hover-light">hi quera bootcamp</div>
-  </header>
-  <!-- main -->
-  <main>
-    <!-- entering application section -->
+    <header
+      class="flex items-center justify-between gap-2 h-[49px] w-full py-3 px-4 relative  lg:hidden dark:bg-gray-800 dark:text-white"
+    >
+      <img src="../assets/images/Frame 12160.png" alt="hamburgur menu" />
+      <div
+        class="font-semibold text-base leading-[100%] absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+      >
+        کوئرا لیست
+      </div>
+    </header>
+
+    <header
+      class="hidden lg:flex items-center justify-between h-[40px] w-[1232px] mt-6 mx-auto"
+    >
+      <div
+        class="flex items-center justify-around gap-16 w-128 h-8 font-semibold text-base text-[20px]"
+      >
+        <div class="text-center leading-[100%]">کوئرا لیست</div>
+        <div class="text-[#2C7EF8]">صفحه اصلی</div>
+        <div class="text-[#666666]">درباره ما</div>
+        <div class="text-[#666666]">ارتباط با ما</div>
+      </div>
+
+      <div class="flex gap-4 items-center justify-center relative">
+        <button class="w-42 h-10 bg-[#2C7EF8] text-white rounded-md py-2 px-6">
+          ورود به اپلیکیشن
+        </button>
+        <img
+          id="dropdownBtn"
+          src="../assets/images/Frame 12159.png"
+          alt="dark/light mode"
+          class="border rounded-md border-[#E3E3E3] h-[40px] w-[40px] cursor-pointer"
+        />
+      </div>
+    </header>
+    <ul
+      id="dropdownMode"
+      class=" lg:flex flex-col justify-center w-[240px] h-[184px] gap-4 p-6 border rounded-lg absolute left-[104px] top-[72px] bg-[#FFFFFF]  "
+    >
+      <li
+        class="flex justify-between border-b border-[#EBEDEF] pb-3 cursor-pointer"
+      >
+        <div class="flex gap-2">
+          <img src="../assets/images/light-outline.png" alt="light" />
+          <div>حالت روشن</div>
+        </div>
+        <img
+          src="../assets/images/tick-outline.png"
+          alt="tick"
+          class="hidden"
+        />
+      </li>
+      <li
+        class="flex justify-between border-b border-[#EBEDEF] pb-3 cursor-pointer"
+      >
+        <div class="flex gap-2">
+          <img src="../assets/images/dark-outline.png" alt="dark" />
+          <div>حالت تاریک</div>
+        </div>
+        <img
+          src="../assets/images/tick-outline.png"
+          alt="tick"
+          class="hidden"
+        />
+      </li>
+      <li class="flex justify-between cursor-pointer">
+        <div class="flex gap-2">
+          <img src="../assets/images/light-dark.png" alt="light-dark" />
+          <div>پیروی از دستگاه</div>
+        </div>
+        <img
+          src="../assets/images/tick-outline.png"
+          alt="tick"
+          class="hidden"
+        />
+      </li>
+    </ul>
 
 
-    <!-- Application feature  -->
+    <!-- main -->
+    <main>
+      <!-- entering application section -->
 
+      <!-- Application feature  -->
 
-    <!-- download section -->
+      <!-- download section -->
 
-    <!-- comments section -->
-    
-  </main>
-  <!-- footer -->
-  <footer>
-    <!-- فوتر این قسمت قرار میگیره -->
-  </footer>
+      <!-- comments section -->
+    </main>
+    <!-- footer -->
+    <footer>
+      <!-- فوتر این قسمت قرار میگیره -->
+    </footer>
 
-
-
-  <script src="./main.js"></script>
-</body>
+    <script src="./main.js"></script>
+  </body>
 </html>
