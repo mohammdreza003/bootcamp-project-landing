@@ -45,26 +45,34 @@
   <body>
     <!-- هدر اینجا تعریف میشه -->
     <header
-      class="flex items-center justify-between gap-2 h-[49px] w-full py-3 px-4 relative  lg:hidden dark:bg-gray-800 dark:text-white"
+      id="mobile-header"
+      class="sticky bg-white top-0 left-0 right-0 flex items-center justify-center h-[49px] w-full py-3 px-4 lg:hidden dark:bg-gray-800 dark:text-white"
     >
-      <img src="../assets/images/Frame 12160.png" alt="hamburgur menu" />
-      <div
-        class="font-semibold text-base leading-[100%] absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-      >
+      <img
+        id="burgerBtn"
+        src="../assets/images/Frame 12160.png"
+        alt="hamburgur menu"
+        class="w-6 h-6"
+      />
+
+      <div class="font-semibold text-base leading-[100%] mx-auto">
         کوئرا لیست
       </div>
+
+      <div class="w-6 h-6"></div>
     </header>
 
     <header
-      class="hidden lg:flex items-center justify-between h-[40px] w-[1232px] mt-6 mx-auto"
+      id="desktop-header"
+      class="fixed bg-white top-0 left-0 right-0 hidden lg:flex items-center justify-between h-[80px] w-full py-6 px-4 mx-auto"
     >
       <div
         class="flex items-center justify-around gap-16 w-128 h-8 font-semibold text-base text-[20px]"
       >
         <div class="text-center leading-[100%]">کوئرا لیست</div>
-        <div class="text-[#2C7EF8]">صفحه اصلی</div>
-        <div class="text-[#666666]">درباره ما</div>
-        <div class="text-[#666666]">ارتباط با ما</div>
+        <a href="index.html" class="text-[#2C7EF8]">صفحه اصلی</a>
+        <a href="aboutUs.html" class="text-[#666666]">درباره ما</a>
+        <a href="contactUs.html" class="text-[#666666]">ارتباط با ما</a>
       </div>
 
       <div class="flex gap-4 items-center justify-center relative">
@@ -81,10 +89,10 @@
     </header>
     <ul
       id="dropdownMode"
-      class=" lg:flex flex-col justify-center w-[240px] h-[184px] gap-4 p-6 border rounded-lg absolute left-[104px] top-[72px] bg-[#FFFFFF]  "
+      class="hidden flex-col justify-center w-[240px] gap-4 px-3 border rounded-lg absolute left-[40px] z-10 top-[72px] bg-[#FFFFFF]"
     >
       <li
-        class="flex justify-between border-b border-[#EBEDEF] pb-3 cursor-pointer"
+        class="flex justify-between border-b border-[#EBEDEF] py-2 cursor-pointer"
       >
         <div class="flex gap-2">
           <img src="../assets/images/light-outline.png" alt="light" />
@@ -97,7 +105,7 @@
         />
       </li>
       <li
-        class="flex justify-between border-b border-[#EBEDEF] pb-3 cursor-pointer"
+        class="flex justify-between border-b border-[#EBEDEF] py-2 cursor-pointer"
       >
         <div class="flex gap-2">
           <img src="../assets/images/dark-outline.png" alt="dark" />
@@ -109,7 +117,7 @@
           class="hidden"
         />
       </li>
-      <li class="flex justify-between cursor-pointer">
+      <li class="flex justify-between py-2 cursor-pointer">
         <div class="flex gap-2">
           <img src="../assets/images/light-dark.png" alt="light-dark" />
           <div>پیروی از دستگاه</div>
@@ -122,11 +130,68 @@
       </li>
     </ul>
 
-
     <!-- main -->
-    <main>
+    <main class="pt-[60px] lg:pt-[80px]">
       <!-- entering application section -->
-
+      <div class="flex flex-col items-center justify-center relative">
+        <h3 class="mx-auto mt-[150px] text-[24px] font-normal lg:text-[46px]">
+          تمرکز رو وارد زندگیت کن
+        </h3>
+        <h2 class="mx-auto font-black text-[28px] lg:text-6xl">
+          به سمت اهدافت اوج بگیر
+        </h2>
+        <img
+          class="absolute w-[24px] top-[89px] left-[296px] lg:w-[32px] lg:top-[148px] lg:left-[1076px]"
+          src="../assets/images/Star 2 (Stroke).png"
+          alt="star1"
+        />
+        <img
+          class="absolute w-[24px] top-[232px] left-[40px] lg:w-[32px] lg:top-[148px] lg:left-[1076px]"
+          src="../assets/images/Star 2 (Stroke).png"
+          alt="star2"
+        />
+        <img
+          class="absolute rotate-[-8.28 deg] w-[101px] h-[21px] top-[250px] left-[139px] lg:w-[350px] lg:h-[50px] lg:top-[369px] lg:left-[550px]"
+          src="../assets/images/Vector 74 (2).png"
+          alt="curvedLine "
+        />
+        <img
+          class="absolute w-[228px] top-[63px] left-[350px] lg:w-[452] lg:top-[148px] lg:left-[36px]"
+          src="../assets/images/Ellipse 128.png"
+          alt="circle1"
+        />
+        <img
+          class="absolute w-[228px] top-[5px] left-[10px] overflow-hidden lg:w-[452] lg:top-[312px] lg:left-[900px]"
+          src="../assets/images/Ellipse 128.png"
+          alt="circle2"
+        />
+        <div
+          class="text-center mx-auto absolute w-[312px] h-[57px] top-[280px] lg:w-[827px] lg:h-[62px] lg:top-[487px]"
+        >
+          زمان در یک روز برای ما محدود است، اما مهمترین کار این است که چگونه از
+          آن استفاده می‌کنیم. با اپلیکیشن کوییرا لیست، زمان خود را با هدف و
+          برنامه‌ریزی موثر سپری کنید."
+        </div>
+        <div
+          class="absolute mx-auto top-[400px] flex justify-center items-center gap-4 lg:w-[395px] lg;h-[48px] lg:top-[589px]"
+        >
+          <button
+            class="bg-[#2C7EF8] text-white w-[156px] h-[40px] rounded-lg py-[5px] px-[10px] lg:py-[8px] lg:px-[40px] lg:w-[199px] lg:h-[48px]"
+          >
+            ورود به اپلیکیشن
+          </button>
+          <button
+            class="bg-[#EBF3FE] text-[#2C7EF8] w-[156px] h-[40px] rounded-lg py-[5px] px-[10px] lg:py-[8px] lg:px-[40px] lg:w-[199px] lg:h-[48px]"
+          >
+            درباره ما
+          </button>
+        </div>
+        <img
+          class="w-[328px] h-[175px] top-[449px] mx-auto absolute lg:top-[750px] lg:w-[1120px] lg:h-[672px]"
+          src="../assets/images/image 39129.png"
+          alt=""
+        />
+      </div>
       <!-- Application feature  -->
 
       <!-- download section -->
@@ -136,6 +201,11 @@
     <!-- footer -->
     <footer>
       <!-- فوتر این قسمت قرار میگیره -->
+      <div>
+        <span class=""></span>
+        <span class="w-[102px] h-[29px] font-semibold">کوئرا لیست</span>
+        <span></span>
+      </div>
     </footer>
 
     <script src="./main.js"></script>

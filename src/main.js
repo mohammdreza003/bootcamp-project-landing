@@ -3,13 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropdownMenu = document.getElementById("dropdownMode");
 
   dropdownBtn.addEventListener("click", () => {
-    if (window.innerWidth >= 1024) {
-      dropdownMenu.classList.toggle("hidden");
-    }
+    dropdownMenu.classList.toggle("hidden");
   });
 
+
   const tickedItem = document.querySelectorAll("#dropdownMode li");
-  const burgerImg = document.querySelector("header img");
+  const burgerImg = document.querySelector("#mobile-header img");
 
   tickedItem.forEach((li) => {
     li.addEventListener("click", () => {
@@ -29,10 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  
   window.addEventListener("resize", () => {
     if (window.innerWidth < 1024) {
-      dropdownMenu.classList.add("hidden"); 
+      dropdownMenu.classList.add("hidden");
     }
   });
 });
