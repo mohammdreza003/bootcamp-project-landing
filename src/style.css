@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "vazir";
+  src: url("../assets/fonts/Vazirmatn-SemiBold.woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "vazir";
+  src: url("../assets/fonts/Vazirmatn-Regular.woff2");
+  font-weight: 400;
+}
+@font-face {
+    font-family: "vazir";
+    src: url('../assets/fonts/Vazirmatn-Bold.woff2');
+    font-weight: 700;
+}
+@font-face {
+  font-family: "vazir";
+  src: url("../assets/fonts/Vazirmatn-Light.woff2");
+  font-weight: 300;
+}
+/* reset */
+* {
+  /* margin: 0;
+  padding: 0; */
+  box-sizing: border-box;
+  outline: none;
+}
+
+
+/* main */
+
+
+
+/* feature */
+
