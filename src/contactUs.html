@@ -9,7 +9,7 @@
   <body>
     <header
       id="mobile-header"
-      class="fixed bg-white top-0 left-0 right-0 flex items-center justify-between gap-2 h-[49px] w-full py-3 px-4 lg:hidden dark:bg-gray-800 dark:text-white"
+      class="fixed bg-white top-0 left-0 right-0 flex items-center justify-between gap-2 h-[49px] w-full py-3 px-4 lg:hidden dark:bg-gray-800 dark:text-white shadow-[0_4px_10px_0_#1848900F]"
     >
       <img
         id="burgerBtn"
@@ -91,8 +91,259 @@
       </li>
     </ul>
 
-    <main>
+    <main id="mobile-main" class="mt-[73px] lg:hidden">
       <!-- محتوای اصلی صفحه اینجاست -->
+      <div
+        class="flex flex-col justify-center items-center w-[312px] mx-auto gap-[8px]"
+      >
+        <div class="text-right font-bold text-[24px]">تماس با ما</div>
+        <div class="text-center font-normal text-[14px]">
+          چیزی هست که بخوای ازم بپرسی؟ خوشحال میشم بتونم بهت کمکی کنم.
+        </div>
+      </div>
+
+      <form
+        action=""
+        class="flex flex-col gap-[24px] rounded-[16px] p-4 border border-[#F5F6F8] mx-[16px] my-[50px]"
+      >
+        <!-- نام و نام خانوادگی -->
+
+        <div class="flex gap-[16px] justify-between items-center">
+          <div class="flex flex-col gap-[8px]">
+            <label for="name">نام:</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="نام شما"
+              class="px-[8px] py-[10px] rounded-[6px] border border-[#E6E6E6] w-[160px] h-[40px]"
+            />
+          </div>
+          <div class="flex flex-col gap-[8px]">
+            <label for="familyName">نام خانوادگی:</label>
+            <input
+              type="text"
+              id="familyName"
+              placeholder="نام خانوادگی شما"
+              class="px-[8px] py-[10px] rounded-[6px] border border-[#E6E6E6] w-[160px] h-[40px]"
+            />
+          </div>
+        </div>
+
+        <!-- ایمیل -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="email">ایمیل:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="ایمیل شما"
+            class="rounded-[6px] border border-[#E6E6E6] h-[40px] px-[8px] py-[10px] w-full"
+          />
+        </div>
+
+        <!-- شماره تماس -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="number">شماره تماس:</label>
+          <input
+            type="number"
+            id="number"
+            placeholder="شماره تماس شما"
+            class="rounded-[6px] border border-[#E6E6E6] h-[40px] px-[8px] py-[10px] w-full appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+          />
+        </div>
+
+        <!-- متن -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="text">متن:</label>
+          <textarea
+            name="text"
+            id="text"
+            class="h-[128px] rounded-[6px] border border-[#E6E6E6] w-full px-[8px] py-[10px] resize-none"
+            placeholder="متن شما"
+          ></textarea>
+        </div>
+        <button
+          class="h-[40px] w-full bg-[#2C7EF8] text-[#FFFFFF] py-[8px] px-[40px] rounded-[8px]"
+        >
+          ارسال پیام
+        </button>
+      </form>
+
+      <div class="flex flex-col mx-[16px] my-[50px] gap-[16px]">
+        <!-- ردیف اول کارت‌ها -->
+        <div class="flex justify-between items-center">
+          <div
+            class="w-[170px] flex gap-[6px] items-center justify-center py-[12px] px-[8px] bg-[#FFFFFF] rounded-[12px] border border-[#F5F6F8] shadow-[0_0_4px_0_#00000008]"
+          >
+            <img
+              class="w-[35px] h-[35px] rounded-[50px]"
+              src="../assets/images/Frame 1000005390 (5).png"
+              alt="email"
+            />
+            <div class="font-bold text-[10px]">
+              ایمیل <br />QueraList@gmail.com
+            </div>
+          </div>
+
+          <div
+            class="w-[170px] flex gap-[6px] items-center justify-center py-[12px] px-[8px] bg-[#FFFFFF] rounded-[12px] border border-[#F5F6F8] shadow-[0_0_4px_0_#00000008]"
+          >
+            <img
+              class="w-[35px] h-[35px] rounded-[50px]"
+              src="../assets/images/Frame 1000005390 (6).png"
+              alt="phone"
+            />
+            <div class="font-bold text-[10px]">
+              شماره تماس <br />021-44445566
+            </div>
+          </div>
+        </div>
+
+        <!-- ردیف شبکه‌های اجتماعی -->
+        <div
+          class="flex justify-center items-center gap-[16px] h-[56px] rounded-[12px] bg-[#FFFFFF] border border-[#F5F6F8] shadow-[0_0_4px_0_#00000008]"
+        >
+          <img
+            class="w-[35px]"
+            src="../assets/images/Frame 1000005392.png"
+            alt="github"
+          />
+          <img
+            class="w-[35px]"
+            src="../assets/images/Frame 1000005391 (2).png"
+            alt="twitter"
+          />
+          <img
+            class="w-[35px]"
+            src="../assets/images/Frame 1000005390 (7).png"
+            alt="linkedin"
+          />
+        </div>
+      </div>
+    </main>
+
+    <main
+      id="desktop-main"
+      class="hidden lg:mt-[120px] lg:flex lg:flex-row gap-[32px] lg:w-full lg:max-w-[1200px] lg:mx-auto lg:px-[40px] lg:py-[32px] lg:rounded-[24px] lg:border lg:border-[#F5F6F8] lg:bg-[#FFFFFF] lg:shadow-[0_0_4px_0_#00000008]"
+    >
+      <div class="flex flex-col gap-[32px]">
+        <div class="flex flex-col gap-[12px]">
+          <div class="font-bold text-[40px]">تماس با‌ من</div>
+          <div class="text-[#6F7076] font-normal text-[20px]">
+            چیزی هست که بخوای ازم بپرسی؟ خوشحال میشم بتونم بهت کمکی کنم.
+          </div>
+        </div>
+
+        <div class="w-[470px] h-[450px] flex flex-col gap-4">
+          <div
+            class="w-full flex gap-[10px] items-center justify-start bg-[#FFFFFF]"
+          >
+            <img
+              class="w-[40px] h-[40px] rounded-[50px]"
+              src="../assets/images/Frame 1000005390 (5).png"
+              alt="email"
+            />
+            <div class="font-semibold text-[18px] text-right">
+              QueraList@gmail.com
+            </div>
+          </div>
+
+          <div
+            class="w-full flex gap-[10px] items-center justify-start bg-[#FFFFFF]"
+          >
+            <img
+              class="w-[40px] h-[40px] rounded-[50px]"
+              src="../assets/images/Frame 1000005390 (6).png"
+              alt="phone"
+            />
+            <div class="font-semibold text-[18px] text-right">021-44445566</div>
+          </div>
+          <div
+            class="flex justify-start items-center gap-[16px] h-[56px] bg-[#FFFFFF] mt-auto"
+          >
+            <img
+              class="w-[40px]"
+              src="../assets/images/Frame 1000005392.png"
+              alt="github"
+            />
+            <img
+              class="w-[40px]"
+              src="../assets/images/Frame 1000005391 (2).png"
+              alt="twitter"
+            />
+            <img
+              class="w-[40px]"
+              src="../assets/images/Frame 1000005390 (7).png"
+              alt="linkedin"
+            />
+          </div>
+        </div>
+      </div>
+
+      <form
+        action=""
+        class="w-[471px] flex flex-col gap-[24px] rounded-[16px] p-5 border border-[#F5F6F8] mx-[16px] my-[50px]"
+      >
+        <!-- نام و نام خانوادگی -->
+
+        <div class="flex gap-[16px] justify-between items-center">
+          <div class="flex flex-col gap-[8px]">
+            <label for="name">نام:</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="نام شما"
+              class="px-[8px] py-[10px] rounded-[6px] border border-[#E6E6E6] w-[200px] h-[40px]"
+            />
+          </div>
+          <div class="flex flex-col gap-[8px]">
+            <label for="familyName">نام خانوادگی:</label>
+            <input
+              type="text"
+              id="familyName"
+              placeholder="نام خانوادگی شما"
+              class="px-[8px] py-[10px] rounded-[6px] border border-[#E6E6E6] w-[200px] h-[40px]"
+            />
+          </div>
+        </div>
+
+        <!-- ایمیل -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="email">ایمیل:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="ایمیل شما"
+            class="rounded-[6px] border border-[#E6E6E6] h-[40px] px-[8px] py-[10px] w-full"
+          />
+        </div>
+
+        <!-- شماره تماس -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="number">شماره تماس:</label>
+          <input
+            type="number"
+            id="number"
+            placeholder="شماره تماس شما"
+            class="rounded-[6px] border border-[#E6E6E6] h-[40px] px-[8px] py-[10px] w-full appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+          />
+        </div>
+
+        <!-- متن -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="text">متن:</label>
+          <textarea
+            name="text"
+            id="text"
+            class="h-[128px] rounded-[6px] border border-[#E6E6E6] w-full px-[8px] py-[10px] resize-none"
+            placeholder="متن شما"
+          ></textarea>
+        </div>
+        <button
+          class="h-[40px] w-full bg-[#2C7EF8] text-[#FFFFFF] py-[8px] px-[40px] rounded-[8px]"
+        >
+          ارسال پیام
+        </button>
+      </form>
     </main>
 
     <footer class="bg-white dark:bg-gray-800 w-full py-8">
