@@ -94,8 +94,155 @@
     <main>
       <!-- محتوای اصلی صفحه اینجاست -->
     </main>
-    <footer>
-      <!-- فوتر این قسمت قرار میگیره -->
+    <footer class="bg-white dark:bg-gray-800 w-full py-8">
+      <!-- موبایل -->
+      <div
+        id="mobile-footer"
+        class="flex flex-col gap-3 items-center lg:hidden"
+      >
+        <div class="flex items-center justify-center w-full">
+          <div class="w-[120px] h-[1px] bg-[#AFAFAF]"></div>
+          <span class="text-base font-semibold mx-2">کوئرا لیست</span>
+          <div class="w-[120px] h-[1px] bg-[#AFAFAF]"></div>
+        </div>
+
+        <div class="w-full px-4 flex flex-col gap-6 items-center">
+          <div class="text-center">
+            <div class="font-bold text-sm">با ما در ارتباط باش</div>
+            <p class="font-normal text-xs mt-1">
+              اگه میخوای اولین نفری باشی که از فیچرهای جدید و تخفیفات با خبر
+              بشی.
+            </p>
+          </div>
+
+          <div
+            class="w-full max-w-[328px] h-[55px] flex justify-between items-center border border-[#A1A1A1] py-[10px] px-[16px] rounded-xl"
+          >
+            <input
+              class="flex-1 rounded-md border-none outline-none text-sm"
+              type="email"
+              placeholder="ایمیل"
+            />
+            <button
+              class="bg-[#2C7EF8] text-white font-black text-sm w-[65px] h-[36px] rounded-md"
+            >
+              ارسال
+            </button>
+          </div>
+
+          <div class="flex w-full max-w-[328px] gap-4">
+            <div
+              class="flex-1 px-4 py-3 rounded-xl border border-[#e9e9eb] flex flex-col items-center justify-center text-xs text-center"
+            >
+              <img
+                src="../assets/images/Frame 1000005390 (3).png"
+                alt="location"
+              />
+              آدرس دفتر مرکزی: پونک - خیابان اشرفی اصفهانی - خیابان صبحدل- بن
+              بست شب بو
+            </div>
+            <div class="flex flex-col flex-1 gap-4">
+              <div
+                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3"
+              >
+                <img
+                  class="w-[30px] h-[30px]"
+                  src="../assets/images/Frame 1000005390 (4).png"
+                  alt="phone"
+                />
+                <div class="text-xs">
+                  تلفن پشتیبانی<br />
+                  ۴۴۴۴۵۵۶۶ - ۰۲۱
+                </div>
+              </div>
+              <div
+                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3"
+              >
+                <img
+                  class="w-[30px] h-[30px]"
+                  src="../assets/images/Frame 1000005391 (1).png"
+                  alt="fax"
+                />
+                <div class="text-xs">
+                  فکس<br />
+                  ۴۴۴۴۵۵۶۶ - ۰۲۱
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-xs text-[#666666] text-center mt-4">
+            تمامی حقوق مادی و معنوی این سایت متعلق به کوئرا لیست می‌باشد.
+          </div>
+        </div>
+      </div>
+
+      <!-- دسکتاپ -->
+      <div
+        id="desktop-footer"
+        class="hidden lg:flex lg:flex-col lg:gap-6 lg:items-center"
+      >
+        <div class="flex items-center justify-center w-[573px] h-[61px]">
+          <div class="w-[223px] h-[1px] bg-[#AFAFAF]"></div>
+          <span class="text-[20px] mx-2">کوئرا لیست</span>
+          <div class="w-[223px] h-[1px] bg-[#AFAFAF]"></div>
+        </div>
+        <div class="w-full flex justify-around items-start">
+          <div class="flex flex-col gap-4 w-[329px]">
+            <div class="flex gap-3 items-center">
+              <img
+                class="w-[30px] h-[30px]"
+                src="../assets/images/Frame 1000005391 (1).png"
+                alt="fax"
+              />
+              <div class="text-[14px]">فکس: ۴۴۴۴۵۵۶۶ - ۰۲۱</div>
+            </div>
+            <div class="flex gap-3 items-center">
+              <img
+                class="w-[30px] h-[30px]"
+                src="../assets/images/Frame 1000005390 (4).png"
+                alt="phone"
+              />
+              <div class="text-[14px]">تلفن پشتیبانی: ۴۴۴۴۵۵۶۶ - ۰۲۱</div>
+            </div>
+            <div class="flex gap-3 items-center">
+              <img
+                class="w-[30px] h-[30px]"
+                src="../assets/images/Frame 1000005390 (3).png"
+                alt="location"
+              />
+              <div class="text-[14px]">
+                آدرس دفتر مرکزی: پونک - خیابان اشرفی اصفهانی - خیابان صبحدل- بن
+                بست شب بو
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col w-[329px] gap-3">
+            <div class="font-bold text-sm">با ما در ارتباط باش</div>
+            <div class="text-xs">
+              اگه میخوای اولین نفری باشی که از فیچرهای جدید و تخفیفات با خبر
+              بشی.
+            </div>
+            <div
+              class="w-full h-[48px] flex justify-between items-center border border-[#A1A1A1] py-2 px-4 rounded-xl"
+            >
+              <input
+                class="flex-1 rounded-md border-none outline-none"
+                type="email"
+                placeholder="ایمیل"
+              />
+              <button
+                class="bg-[#2C7EF8] text-white font-black text-sm w-[65px] h-[36px] rounded-md"
+              >
+                ارسال
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="text-center text-[14px] text-[#666666] mt-6">
+          تمامی حقوق مادی و معنوی این سایت متعلق به کوئرا لیست می‌باشد.
+        </div>
+      </div>
     </footer>
     <script src="./main.js"></script>
   </body>
