@@ -139,107 +139,99 @@
       </li>
     </ul>
 
-    <main class="md:mt-[15rem] flex flex-col items-center md:mx-auto ">
+    <main class="">
       <!-- محتوای اصلی صفحه اینجاست -->
 
       <!-- ---- -->
-      <section
-        class="flex flex-col gap-5 justify-evenly items-center md:w-[80%] md:max-w-[1120px] md:grid md:grid-cols-2 md:grid-rows-2 md:border md:"
-      >
-        <article
-          class="rounded-3xl gap-6 mt-6 w-[90%] md:gap-6 md:px-10 md:py-8 md:col-start-2"
+      <div class="grid gap-6 grid-cols-1 sm:grid-cols-5 sm:grid-rows-5">
+        <!-- تصویر پروفایل -->
+        <div
+          class="order-1 sm:order-none col-span-1 sm:col-span-2 row-span-1 sm:row-span-2 sm:col-start-4 sm:row-start-auto"
         >
           <img
-            class="mx-auto w-full size-[80%] md:w-[548px] md:h-[348px] object-cover md:rounded-3xl"
             src="../assets/images/Frame 427321285.png"
-            alt=""
+            alt="profile Pic"
+            class="w-full h-full object-cover rounded-2xl"
           />
-        </article>
-        <article
-          class="md:shadow-comment md:border md:border-[#F5F6F8] md:px-10 md:py-8 md:rounded-3xl md:w-[548px] md:text-right flex flex-col md:col-start-1 md: md:row-span-2"
+        </div>
+
+        <!-- کارت اطلاعات -->
+        <div
+          class="order-3 sm:order-none col-span-1 sm:col-span-2 row-span-1 sm:row-span-2 sm:col-start-4 sm:row-start-3"
         >
-          <article class="mx-auto text-center">
-            <h2 class="text-[#141414] font-bold text-xl">درباره‌ من</h2>
-            <h1 class="text-[#575757] text-[28px] font-extrabold">
-              محمد محمدی
-            </h1>
-          </article>
-          <article
-            class="mx-auto w-[90%] border border-[#F5F6F8] shadow-comment md:shadow-none md:border-none gap-2 p-4 bg-[#FFFFFF] rounded-2xl"
+          <div
+            class="bg-white dark:bg-dark-card-bg p-6 rounded-2xl shadow-md h-full flex items-center"
           >
-            <p class="text-[#444749] text-center text-[15px] leading-[30px]">
-              کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از استورهای معتبر
-              اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل علاوه بر
-              دانلود نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن
-              استفاده نمایند. کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از
-              استورهای معتبر اندروید دانلود نمایند. همچنین کاربران سیستم عامل
-              اپل علاوه بر دانلود نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی
-              بر وب آن استفاده نمایند. کاربران اندروید می‌توانند اپلیکیشن
-              کوئرالیست را از استورهای معتبر اندروید دانلود نمایند. همچنین
-              کاربران سیستم عامل اپل علاوه بر دانلود نرم‌افزار از اپل‌استور
-              می‌توانند از نسخه مبتنی بر وب آن استفاده نمایند.
-            </p>
-          </article>
-        </article>
-        <article class="w-[80%] md:col-span-1 md:self-center">
-          <article class="flex flex-row justify-between">
-            <div
-              class="shadow-comment border border-[#F5F6F8] rounded-2xl w-[40%] flex flex-col gap-3 px-3 py-4 align-middle"
-            >
-              <h3 class="text-[#070D31] text-[18px] font-bold">1379</h3>
-              <p class="text-[#444749] text-xs font-normal">سال تولد</p>
+            <div class="grid grid-cols-2 gap-4 w-full">
+              <div
+                class="p-4 bg-gray-50 rounded-lg text-center shadow-sm dark:bg-dark-about-bg"
+              >
+                <div class="font-semibold text-blue-950 dark:text-white">
+                  سال تولد
+                </div>
+                <div class="mt-2 text-gray-800 font-semibold dark:text-white">
+                  ۱۳۷۹
+                </div>
+              </div>
+              <div
+                class="p-4 bg-gray-50 rounded-lg text-center shadow-sm dark:bg-dark-about-bg"
+              >
+                <div class="font-semibold text-blue-950 dark:text-white">
+                  محل زندگی
+                </div>
+                <div class="mt-2 text-gray-800 font-semibold dark:text-white">
+                  تهران
+                </div>
+              </div>
+              <div
+                class="p-4 bg-gray-50 rounded-lg text-center shadow-sm dark:bg-dark-about-bg"
+              >
+                <div class="font-semibold text-blue-950 dark:text-white">
+                  سال تجربه کار
+                </div>
+                <div class="mt-2 text-gray-800 font-semibold dark:text-white">
+                  ۳.۵
+                </div>
+              </div>
+              <div
+                class="p-4 bg-gray-50 rounded-lg text-center shadow-sm dark:bg-dark-about-bg"
+              >
+                <div class="font-semibold text-blue-950 dark:text-white">
+                  مشارکت در پروژه
+                </div>
+                <div class="mt-2 text-gray-800 font-semibold dark:text-white">
+                  ۱۰+
+                </div>
+              </div>
             </div>
-            <div
-              class="shadow-comment border border-[#F5F6F8] rounded-2xl w-[40%] flex flex-col gap-3 px-3 py-4 align-middle"
-            >
-              <h3 class="text-[#070D31] text-[18px] align-middle font-bold">
-                تهران
-              </h3>
-              <p class="text-[#444749] text-xs font-normal">محل زندگی</p>
-            </div>
-          </article>
-          <article class="flex flex-row justify-between md: ">
-            <div
-              class="shadow-comment border border-[#F5F6F8] rounded-2xl w-[40%] flex flex-col gap-3 px-3 py-4 align-middle"
-            >
-              <h3 class="text-[#070D31] text-[18px] font-bold">3.5</h3>
-              <p class="text-[#444749] text-xs font-normal">سال تجربه کار</p>
-            </div>
-            <div
-              class="shadow-comment border border-[#F5F6F8] rounded-2xl w-[40%] flex flex-col gap-3 px-3 py-4 align-middle"
-            >
-              <h3 class="text-[#070D31] text-[18px] align-middle font-bold">
-                +10
-              </h3>
-              <p class="text-[#444749] text-xs font-normal">مشارکت در پروژه‌</p>
-            </div>
-          </article>
-        </article>
+          </div>
+        </div>
 
-        <!-- <article class="flex flex-col gap-4  ">
-          <article class=" flex flex-row gap-4  w-full">
-            <div class="px-3 py-4 gap-2 bg-[#FFFFFF] border border-[#F5F6F8] shadow-comment rounded-2xl" >
-              <h3 class="text-[#070D31] text-[18px] ">1379</h3>
-              <p>سال تولد</p>
-            </div>
-            <div class="px-3 py-4 gap-2 bg-[#FFFFFF] border border-[#F5F6F8] shadow-comment rounded-2xl" >
-              <h3 class="text-[#070D31] text-[18px] ">1379</h3>
-              <p>سال تولد</p>
-            </div>
-          </article>
-          <article class=" flex flex-row gap-4">
-            <div class="px-3 py-4 gap-2 bg-[#FFFFFF] border border-[#F5F6F8] shadow-comment rounded-2xl" >
-              <h3 class="text-[#070D31] text-[18px] ">1379</h3>
-              <p>سال تولد</p>
-            </div>
-            <div class="px-3 py-4 gap-2 bg-[#FFFFFF] border border-[#F5F6F8] shadow-comment rounded-2xl" >
-              <h3 class="text-[#070D31] text-[18px] ">1379</h3>
-              <p>سال تولد</p>
-            </div>
-          </article>
-
-        </article> -->
-      </section>
+        <!-- متن درباره من -->
+        <div
+          class="order-2 sm:order-none col-span-1 sm:col-span-3 row-span-1 sm:row-span-4 "
+        >
+          <h1 class="text-3xl font-semibold text-center sm:text-right mb-5 text-blue-950 dark:text-white">
+            درباره من
+          </h1>
+          <h2 class="text-xl font-bold text-gray-600 text-center sm:text-right dark:text-white mb-4">
+            محمد محمدی
+          </h2>
+          <p class="text-gray-600 text-lg leading-relaxed dark:text-white">
+            کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از استورهای معتبر
+            اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل علاوه بر دانلود
+            نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن استفاده
+            نمایند. <br />کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از
+            استورهای معتبر اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل
+            علاوه بر دانلود نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب
+            آن استفاده نمایند. <br />
+            کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از استورهای معتبر
+            اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل علاوه بر دانلود
+            نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن استفاده
+            نمایند. است که می‌توانید آن را با متن واقعی جایگزین کنید.
+          </p>
+        </div>
+      </div>
     </main>
     <footer class="bg-white dark:bg-gray-800 w-full py-8">
       <!-- موبایل -->
