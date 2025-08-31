@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+
     <script>
       tailwind.config = {
         darkMode: "class",
@@ -18,6 +20,10 @@
                 "on-background": "#191C1E",
                 "about-us-bgcolor": "#EBF3FE",
                 "input-border": "#E6E6E6",
+ 
+                'my-gradient': 'linear-gradient(162.19deg, rgba(239, 235, 255, 0) 32.45%, #EBEBFB 79.35%)',
+
+ 
               },
               dark: {
                 primary: "#3A86F8",
@@ -37,13 +43,25 @@
               app: "0px 0px 24px 0px rgba(0, 0, 0, 0.05)",
               comment: "0px 4px 63px 0px rgba(0, 0, 0, 0.04)",
             },
+
+            fontFamily: {
+              vazir: ["vazir"],
+            },
+            backgroundImage: {
+              "gradient-118":
+                "linear-gradient(118.11deg, #E5E7E8 22.44%, #E9EBF1 102.49%)",
+            },
+
           },
         },
       };
     </script>
   </head>
   <body>
-    <!-- هدر اینجا تعریف میشه -->
+
+    <header>
+      
+       <!-- هدر اینجا تعریف میشه -->
     <header
       id="mobile-header"
       class="bg-white dark:bg-gray-800 dark:text-white top-0 left-0 right-0 flex items-center justify-center h-[49px] w-full py-3 px-4 lg:hidden"
@@ -125,10 +143,10 @@
         />
       </li>
     </ul>
-
+    </header>
     <!-- main -->
     <main class="lg:pt-[100px] relative pb-[200px]">
-      <!-- بخش ورود -->
+      <!-- entering application section -->
       <section class="flex flex-col items-center text-center relative">
         <h3 class="mt-[100px] text-[24px] lg:text-[46px] font-normal">
           تمرکز رو وارد زندگیت کن
@@ -193,13 +211,419 @@
         />
       </section>
 
-      <!-- Application feature  -->
+      <section class="flex flex-col gap-[24px] md:gap-[128px] dark:bg-[#040810]">
+        
+        <!-- Application feature  -->
+        <section class="flex flex-col md:gap-10 dark:bg-[#040810]" id="application-feature">
+          <section
+            class="flex flex-col justify-center items-center  gap-3 w-full max-w-2xl mx-auto "
+            id="application-explanation"
+          >
+            <h3
+              class="font-vazir text-[#191C1E] text-2xl  md:text-[40px] font-semibold text-center dark:text-[#FFFFFF]"
+            >
+              ویژگی‌های اپلیکیشن کوئرالیست
+            </h3>
+            <p
+              class="text-[#141414] text-[12px] mx-6 text-center font-vazir font-normal   tracking-normal md:hidden dark:text-[#E6E6E6]"
+            >
+              زمان در یک روز برای ما محدود است، اما مهمترین کار این است که چگونه
+              از آن استفاده می‌کنیم. با اپلیکیشن کوییرا لیست، زمان خود را با هدف و
+              برنامه‌ریزی موثر سپری کنید."
+            </p>
+            <p
+              class="hidden w-[75%] md:block md:text-center md:font-vazir md:text-[18px] leading-8 text-[#444749] dark:text-[#E6E6E6]  max-w-fit"
+            >
+              ما توی تیم کوئرا لیست بر اساس بازخوردهای شما و جدیدترین ترندهای
+              بازار همواره در تلاشیم تا بهترین تجربه کاربری رو براتون به ارمغان
+              بیاریم.
+            </p>
+          </section>
+          <section
+            class="grid grid-cols-2 gap-4  my-9  mx-auto w-[328px]  md:flex md:gap-6 md:max-w-[1120px] md:w-full"
+          >
+            <!-- 1 -->
+            <article class="dark:bg-[#0B192D] max-w-[328px] md:max-w-[262px] font-vazir bg-[#FFFFFF] border dark:border-none border-[#F5F6F8] shadow-comment rounded-[24px] px-3 py-4  md:px-10 md:py-8 flex justify-between gap-2 md:gap-6  ">
+              <div class="md:max-w-[219px] gap-[10px] md:gap-4">
+                <div class="md:pb-4" >
+                  <div class="size-10 md:size-12  md:gap-2 dark:bg-[#D4DEE814] bg-[#F5FBFF] flex justify-center items-center mx-auto rounded-[80px]">
+                    <img class=" size-6 " src="../assets/images/brush.svg" alt="brush">
+                  </div>
+  
+                </div>
+                <div class="md:max-w-[219px] gap-3 flex flex-col">
+                  <h4 class="font-bold text-xs md:text-xl text-center dark:text-[#FFFFFF]  text-[#070D31]">رابط کاربری جذاب</h4>
+                  <p class="font-normal text-[10px] md:text-[14px] md:leading-[30px] text-center dark:text-[#F0F0F0] text-[#070D31] leading-4">اگه از سردرگمی و بی برنامگی خسته شدی این اپلیکیشن مخصوص خودته!</p>
+                </div>
+              </div>
+  
+            </article>
+            <!-- 2 -->
+            <article class="dark:bg-[#0B192D] max-w-[328px] md:max-w-[262px] font-vazir bg-[#FFFFFF] border dark:border-none border-[#F5F6F8] shadow-comment rounded-[24px] px-3 py-4  md:px-10 md:py-8 flex justify-between gap-2 md:gap-6  ">
+              <div class="md:max-w-[219px] gap-[10px] md:gap-4">
+                <div class="md:pb-4" >
+                  <div class="size-10 md:size-12  md:gap-2 dark:bg-[#D4DEE814] bg-[#F5FBFF] flex justify-center items-center mx-auto rounded-[80px]">
+                    <img class=" size-6 " src="../assets/images/category.svg" alt="category">
+                  </div>
+  
+                </div>
+                <div class="md:max-w-[219px] gap-3 flex flex-col">
+                  <h4 class="font-bold text-xs md:text-xl text-center  dark:text-[#FFFFFF] text-[#070D31]">رابط کاربری جذاب</h4>
+                  <p class="font-normal text-[10px] md:text-[14px] md:leading-[30px] text-center dark:text-[#F0F0F0] text-[#070D31] leading-4">اگه از سردرگمی و بی برنامگی خسته شدی این اپلیکیشن مخصوص خودته!</p>
+                </div>
+              </div>
+  
+            </article>
+            
+            <!-- 3 -->
+            <article class="dark:bg-[#0B192D] max-w-[328px] md:max-w-[262px] font-vazir bg-[#FFFFFF] border dark:border-none border-[#F5F6F8] shadow-comment rounded-[24px] px-3 py-4  md:px-10 md:py-8 flex justify-between gap-2 md:gap-6  ">
+              <div class="md:max-w-[219px] gap-[10px] md:gap-4">
+                <div class="md:pb-4" >
+                  <div class="size-10 md:size-12  md:gap-2 dark:bg-[#D4DEE814] bg-[#F5FBFF] flex justify-center items-center mx-auto rounded-[80px]">
+                    <img class=" size-6 " src="../assets/images/location-tick.svg" alt="location-tick">
+                  </div>
+  
+                </div>
+                <div class="md:max-w-[219px] gap-3 flex flex-col">
+                  <h4 class="font-bold text-xs md:text-xl text-center dark:text-[#FFFFFF]  text-[#070D31]">دسترسی آسان</h4>
+                  <p class="font-normal text-[10px] md:text-[14px] md:leading-[30px] text-center dark:text-[#F0F0F0] text-[#070D31] leading-4">اگه از سردرگمی و بی برنامگی خسته شدی این اپلیکیشن مخصوص خودته!</p>
+                </div>
+              </div>
+  
+            </article>
+            
+            
+            <!-- 4 -->
+            <article class="dark:bg-[#0B192D] max-w-[328px] md:max-w-[262px] font-vazir bg-[#FFFFFF] border dark:border-none border-[#F5F6F8] shadow-comment rounded-[24px] px-3 py-4  md:px-10 md:py-8 flex justify-between gap-2 md:gap-6  ">
+              <div class="md:max-w-[219px] gap-[10px] md:gap-4">
+                <div class="md:pb-4" >
+                  <div class="size-10 md:size-12  md:gap-2 dark:bg-[#D4DEE814] bg-[#F5FBFF] flex justify-center items-center mx-auto rounded-[80px]">
+                    <img class=" size-6 " src="../assets/images/tag-user.svg" alt="tag-user">
+                  </div>
+  
+                </div>
+                <div class="md:max-w-[219px] gap-3 flex flex-col">
+                  <h4 class="font-bold text-xs md:text-xl text-center dark:text-[#FFFFFF]  text-[#070D31]">پشتیبانی آنلاین</h4>
+                  <p class="font-normal text-[10px] md:text-[14px] md:leading-[30px] text-center dark:text-[#F0F0F0] text-[#070D31] leading-4">اگه از سردرگمی و بی برنامگی خسته شدی این اپلیکیشن مخصوص خودته!</p>
+                </div>
+              </div>
+  
+            </article>          
+          </section>
+        </section>
+  
+        <!-- download section -->
+         <section class="dark:bg-[#040810]">
+  
+           <section
+             class="flex flex-col gap-4 font-vazir md:flex-row w-[100%] mx-auto md:max-w-[1120px]  "
+             id="dl"
+           >
+             <div class="flex flex-col   w-[100%] max-w-[540px]">
+               <section class="flex flex-col gap-3" id="dl-title">
+                 <div class=" flex flex-col justify-center  md:gap-2 md:text-right md:leading-10 md:pt-[40px]">
+                   <h6
+                     class="font-vazir font-normal text-[#141414] text-center align-middle leading-[100%] md:text-right text-[10px] md:text-[18px] dark:text-[#FFFFFF]"
+                   >
+                     اپلیکیشن اندروید و IOS
+                   </h6>
+                   <h3
+                     class="font-vazir font-semibold text-[#191C1E] text-2xl text-center leading-[72px] md:text-start md:self-start md:leading-snug md:text-[40px] dark:text-[#FFFFFF]"
+                   >
+                     دانلود اپلیکیشن
+                   </h3>
+                 </div>
+               </section>
+               <section class="self-center" id="dl-image">
+                 <img
+                   class="md:hidden"
+                   src="../assets/images/app-mobile-small-light.png"
+                   alt="dl_image_mobile"
+                 />
+               </section>
+               <section class="" id="dl__explanation">
+                 <p
+                   class="font-normal  text-[12px] w-[80%] pt-6 mx-auto md:mx-0  text-center text-[#141414] md:text-start md:leading-8 md:text-[18px] md:break-normal md:pb-[45px] md:pt-5 dark:text-[#E6E6E6]"
+                 >
+                   کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از استورهای معتبر
+                   اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل علاوه بر
+                   دانلود نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن
+                   استفاده نمایند <br/>همچنین کاربران سیستم عامل اپل علاوه بر دانلود
+                   نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن استفاده
+                   نمایند.
+                 </p>
+               </section>
+               <section class="flex justify-center mt-[19px] gap-4 md:justify-start">
+                 <button
+                   class="font-semibold text-[12px] text-[#2C7EF8] md:text-[18px]"
+                 >
+                   ورود به اپلیکیشن
+                 </button>
+                 <img src="../assets/images/arrow-right.svg" alt="" />
+               </section>
+             </div>
+             <div class">
+               <!-- <p>img</p> -->
+               <div class="relative dark:hidden">
+                 <img
+                   class="hidden  md:inline absolute left-[290.15px] top-[40px]"
+                   src="../assets/images/app-mobile-light.png"
+                   alt="application_image"
+                 />
+                 <img
+                   class="hidden md:inline rounded-3xl"
+                   src="../assets/images/app-web-light.png"
+                   alt="application_image"
+                 />
+               </div>
+               <div class="relative hidden dark:inline">
+                 <img
+                   class="hidden   md:inline absolute left-[290.15px] top-[40px]"
+                   src="../assets/images/app-mobile-dark.png"
+                   alt="application_image"
+                 />
+                 <img
+                   class="hidden md:inline rounded-3xl"
+                   src="../assets/images/app-web-dark.png"
+                   alt="application_image"
+                 />
+               </div>
+             </div>
+           </section>
+         </section>
+  
+  
+        <!-- comments section -->
+         <section class="dark:bg-[#040810]">
+           <section class="flex flex-col gap-8 w-full mx-auto md:max-w-[1120px]  md:gap-12 dark:bg-[#040810]">
+             <section
+               class="flex flex-col mx-auto gap-2  md:gap-4 text-center w-[69%] md:w-[50%]"
+             >
+               <h3
+                 class="font-vazir font-bold text-xl text-[20px] md:text-[40px] md:leading-[72px] text-[#191C1E] dark:text-[#FFFFFF]"
+               >
+                 نظرات کاربران
+               </h3>
+               <p
+                 class="font-vazir font-normal text-[10px] md:text-[18px] text-center leading-[100%] md:leading-[30px] text-[#444749] md:break-normal dark:text-[#E6E6E6]"
+               >
+                 بیش از یک دهه است که کوئرا لیست به مردم در سراسر جهان کمک می‌کند تا
+                 سازماندهی شوند و به اهداف خود برسند.
+               </p>
+             </section>
+     
+               <section class=" hidden md:flex flex-row  md:flex-row md:flex-wrap  md:w-[1120px] md:justify-between">
+               <!-- 1 -->
+               <div class=" mdflex flex-col gap-6  md:w-[357px]">
+                 <div
+                   class=" hidden md:px-8 md:py-6 md:flex flex-col gap-2 md:gap-6 rounded-2xl bg-[#FFFFFF] dark:bg-[#0B192D] shadow-comment"
+                 >
+                   <div class="max-w-[293px] flex flex-row gap-[17.01px]">
+                     <img src="../assets/images/user1.png" alt="user1" />
+                     <div
+                       class="gap-[4.25px] flex flex-col justify-center font-vazir"
+                     >
+                       <h4 class="font-bold md:text-[15px] text-[#141414] dark:text-[#FFFFFF]">
+                         رویا ملکی
+                       </h4>
+                       <h6 class="font-normal text-[14px] text-[#5C5C5C] dark:text-[#E6E6E6]">
+                         مهندس نرم افزار دیجی‌کالا
+                       </h6>
+                     </div>
+                   </div>
+                   <p class="font-vazir font-light text-[16px] text-[#444749] dark:text-[#E6E6E6]">
+                     تجربه من با کوئرا لیست زندگی من رو تغییر داده است. من از دنیایی
+                     اومدم که همه چیز من در اکسل بود. استفاده از کوئرا لیست به ما این
+                     امکان رو می‌دهد که باهوش‌تر، سریع‌تر و سازمان دهی شده تر زندگی
+                     کنیم و هم چینین همه چیز به گونه‌ای ساده تنظیم شده و میتونیم از
+                     یکپارچگی اطلاعات و دیتاها لذت ببریم.
+                   </p>
+                 </div>
+                 <!-- copy -->
+                 <div
+                   class="hidden md:px-8 md:py-6 md:flex flex-col gap-2 md:gap-6 rounded-2xl bg-[#FFFFFF] dark:bg-[#0B192D] border border-[#F5F6F8] dark:border-none"
+                 >
+                   <div class="max-w-[293px] flex flex-row gap-[17.01px]">
+                     <img src="../assets/images/user4.png" alt="user4" />
+                     <div
+                       class="gap-[4.25px] flex flex-col justify-center font-vazir"
+                     >
+                       <h4 class="font-bold md:text-[15px] text-[#141414] dark:text-[#FFFFFF]">
+                         رویا ملکی
+                       </h4>
+                       <h6 class="font-normal text-[14px] text-[#5C5C5C] dark:text-[#E6E6E6]">
+                         مهندس نرم افزار دیجی‌کالا
+                       </h6>
+                     </div>
+                   </div>
+                   <p class="font-vazir font-light text-[12px] md:text-[16px] text-[#444749] dark:text-[#E6E6E6]">
+                     تجربه من با کوئرا لیست زندگی من رو تغییر داده است. من از دنیایی
+                     اومدم که همه چیز من در اکسل بود. استفاده از کوئرا لیست به ما این
+                     امکان رو می‌دهد که سریع تر باشیم
+                   </p>
+                 </div>
+               </div>
+     
+               <!-- 2 -->
+     
+               <div class="flex overflow-x-autoauto  md:flex-col gap-6 md:w-[357px]">
+                 <div
+                   class="md:px-8 md:py-6 snap-center   md:flex md:flex-col gap-6 rounded-2xl bg-[#FFFFFF] dark:bg-[#0B192D] shadow-comment"
+                 >
+                   <div class="max-w-[293px] flex flex-shrink-0 h-auto flex-row gap-[17.01px]">
+                     <img src="../assets/images/user2.png" alt="user2" />
+                     <div
+                       class="gap-[4.25px] flex flex-col justify-center font-vazir"
+                     >
+                       <h4 class="font-bold md:text-[15px] text-[#141414] dark:text-[#FFFFFF]">
+                         رویا ملکی
+                       </h4>
+                       <h6 class="font-normal text-[14px] text-[#5C5C5C] dark:text-[#E6E6E6]">
+                         مهندس نرم افزار دیجی‌کالا
+                       </h6>
+                     </div>
+                   </div>
+                   <p class="font-vazir font-light text-[16px] text-[#444749] dark:text-[#E6E6E6]">
+                     تجربه من با کوئرا لیست زندگی من رو تغییر داده است. من از دنیایی
+                     اومدم که همه چیز من در اکسل بود. استفاده از کوئرا لیست به ما این
+                     امکان رو می‌دهد که سریع تر باشیم
+                   </p>
+                 </div>
+                 <!-- copy -->
+                 <div
+                   class="md:px-8 md:py-6 w-[70%]  md:w-full mx-auto   md:flex md:flex-col gap-6 rounded-2xl bg-[#FFFFFF] dark:bg-[#0B192D] shadow-comment"
+                 >
+                   <div class="max-w-[293px] w-full flex flex-row gap-[17.01px]">
+                     <img src="../assets/images/user5.png" alt="user5" />
+                     <div
+                       class="gap-[4.25px] flex flex-col justify-center font-vazir"
+                     >
+     
+     
+                      <h4 class="font-bold text-[14px] md:text-[15px] text-[#141414] dark:text-[#FFFFFF]">
+                         رویا ملکی
+                       </h4>
+                       <h6 class="font-normal text-[12px] md:text-[14px] text-[#5C5C5C] dark:text-[#E6E6E6]">
+                         مهندس نرم افزار دیجی‌کالا
+                       </h6>
+                     </div>
+                   </div>
+                   <p class="font-vazir font-light text-[12px] text-right   md:text-[16px] text-[#444749] dark:text-[#E6E6E6]">
+                     تجربه من با کوئرا لیست زندگی من رو تغییر داده است. من از دنیایی
+                     اومدم که همه چیز من در اکسل بود. استفاده از کوئرا لیست به ما این
+                     امکان رو می‌دهد که باهوش‌تر، سریع‌تر و سازمان دهی شده تر زندگی
+                     کنیم و هم چینین همه چیز به گونه‌ای ساده تنظیم شده و میتونیم از
+                     یکپارچگی اطلاعات و دیتاها لذت ببریم.
+                   </p>
+                 </div>
+               </div>
+               <!-- 3 -->
+               <div class="flex flex-col gap-6 md:w-[357px]">
+                 <div
+                   class="md:px-8 md:py-6 hidden md:flex flex-col gap-6 rounded-2xl bg-[#FFFFFF] dark:bg-[#0B192D] shadow-comment"
+                 >
+                   <div class="max-w-[293px] flex flex-row gap-[17.01px]">
+                     <img src="../assets/images/user3.png" alt="user3" />
+                     <div
+                       class="gap-[4.25px] flex flex-col justify-center font-vazir"
+                     >
+                       <h4 class="font-bold md:text-[15px] text-[#141414] dark:text-[#FFFFFF]">
+                         رویا ملکی
+                       </h4>
+                       <h6 class="font-normal text-[14px] text-[#5C5C5C] dark:text-[#E6E6E6]">
+                         مهندس نرم افزار دیجی‌کالا
+                       </h6>
+                     </div>
+                   </div>
+                   <p class="font-vazir font-light text-[16px] text-[#444749] dark:text-[#E6E6E6]">
+                     تجربه من با کوئرا لیست زندگی من رو تغییر داده است. من از دنیایی
+                     اومدم که همه چیز من در اکسل بود. استفاده از کوئرا لیست به ما این
+                     امکان رو می‌دهد که باهوش‌تر، سریع‌تر و سازمان دهی شده تر زندگی
+                     کنیم و هم چینین همه چیز به گونه‌ای ساده تنظیم شده و میتونیم از
+                     یکپارچگی اطلاعات و دیتاها لذت ببریم.
+                   </p>
+                 </div>
+                 <!-- copy -->
+                 <div
+                   class="md:px-8 md:py-6 hidden md:flex flex-col gap-6 rounded-2xl bg-[#FFFFFF] dark:bg-[#0B192D] border border-[#F5F6F8] dark:border-none"
+                 >
+                   <div class="max-w-[293px] flex flex-row gap-[17.01px]">
+                     <img src="../assets/images/user6.png" alt="user6" />
+                     <div
+                       class="gap-[4.25px] flex flex-col justify-center font-vazir"
+                     >
+                       <h4 class="font-bold md:text-[15px] text-[#141414] dark:text-[#FFFFFF]">
+                         رویا ملکی
+                       </h4>
+                       <h6 class="font-normal text-[14px] text-[#5C5C5C] dark:text-[#E6E6E6]">
+                         مهندس نرم افزار دیجی‌کالا
+                       </h6>
+                     </div>
+                   </div>
+                   <p class="font-vazir font-light text-[16px] text-[#444749] dark:text-[#E6E6E6]">
+                     تجربه من با کوئرا لیست زندگی من رو تغییر داده است. من از دنیایی
+                     اومدم که همه چیز من در اکسل بود. استفاده از کوئرا لیست به ما این
+                     امکان رو می‌دهد که سریع تر باشیم
+                   </p>
+                 </div>
+               </div>
+             </section>
+             <section>
+               <div class="relative w-full max-w-4xl mx-auto">
+          
+      <div
+         id="slider"
+         class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide md:hidden"
+       >
+            
+         <div class="flex-shrink-0 w-80 snap-center bg-white dark:bg--[#0B192D] rounded-2xl shadow p-6 text-center">
+           <img src="../assets/images/user3.png" alt="profile" class="w-16 h-16 mx-auto rounded-full mb-4" />
+           <h3 class="font-bold text-lg mb-1">علی ملکی</h3>
+           <p class="text-gray-500 text-sm mb-4">مهندس نرم افزار دیجی‌کالا</p>
+           <p class="text-gray-700 text-sm leading-7">
+             تجربه من با کوئرا لیست زندگی من رو تغییر داده است...
+           </p>
+         </div>
+     
+           
+         <div class="flex-shrink-0 w-80 snap-center bg-white rounded-2xl shadow p-6 text-center">...</div>
+         <div class="flex-shrink-0 w-80 snap-center bg-white rounded-2xl shadow p-6 text-center">...</div>
+       </div>
+     
+      
+       
+        </div>
+             </section>
+     
+             
+             
+             
+            
+     
+             
+               
+             <div class="flex mx-auto gap-6">
+               <button class="md:rounded-md border p-[10px] gap-3 border-[#E3E6E8] bg-[#FFFFFF] dark:bg-[#0B192D] dark:border-[#293242]">
+                <img class="dark:hidden" src="../assets/images/chevron-right.svg" alt="">
+                <img src="../assets/images/chevron-right-dark.svg" alt="">
+              </button>
+               <button class="md:rounded-md border p-[10px] gap-3 border-[#E3E6E8] bg-[#FFFFFF] dark:bg-[#0B192D] dark:border-[#293242]">
+                <img class="dark:hidden" src="../assets/images/chevron-left.svg" alt="">
+                <img src="../assets/images/chevron-left-dark.svg" alt="">
+               </button>
+             </div>
+           </section>
+  
+         </section>
+        <section>
+      </section>
+        <div>
 
-      <!-- download section -->
-
-      <!-- comments section -->
+        </div>
+      </section>
     </main>
     <!-- footer -->
+    
     <footer class="bg-white dark:bg-gray-800 w-full py-8">
       <!-- موبایل -->
       <div
