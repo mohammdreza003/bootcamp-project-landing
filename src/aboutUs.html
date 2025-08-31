@@ -1,10 +1,58 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" class="">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About us</title>
+    <link rel="stylesheet" href="./style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              light: {
+                primary: "#2C7EF8",
+                "primary-hover": "#075CD9",
+                "on-primary": "#FFFFFF",
+                "on-background": "#191C1E",
+                "about-us-bgcolor": "#EBF3FE",
+                "input-border": "#E6E6E6",
+
+                "my-gradient":
+                  "linear-gradient(162.19deg, rgba(239, 235, 255, 0) 32.45%, #EBEBFB 79.35%)",
+              },
+              dark: {
+                primary: "#3A86F8",
+                "primary-hover": "#6BA4FA",
+                background: "#040810",
+                "on-background": "#E6E9EF",
+                surface: "#E6E9EF",
+                "a-dark": "#CFCFCF",
+                "a-hover-dark": "#037FFF",
+                "text-color": "#ffffff",
+                "about-bg": "#122549",
+                "card-bg": "#0B192D",
+                "about-me-card": "#0E1E34",
+              },
+            },
+            boxShadow: {
+              app: "0px 0px 24px 0px rgba(0, 0, 0, 0.05)",
+              comment: "0px 4px 63px 0px rgba(0, 0, 0, 0.04)",
+            },
+
+            fontFamily: {
+              vazir: ["vazir"],
+            },
+            backgroundImage: {
+              "gradient-118":
+                "linear-gradient(118.11deg, #E5E7E8 22.44%, #E9EBF1 102.49%)",
+            },
+          },
+        },
+      };
+    </script>
   </head>
   <body>
     <header
@@ -91,8 +139,107 @@
       </li>
     </ul>
 
-    <main class="mt-8">
+    <main class="md:mt-[15rem] flex flex-col items-center md:mx-auto ">
       <!-- محتوای اصلی صفحه اینجاست -->
+
+      <!-- ---- -->
+      <section
+        class="flex flex-col gap-5 justify-evenly items-center md:w-[80%] md:max-w-[1120px] md:grid md:grid-cols-2 md:grid-rows-2 md:border md:"
+      >
+        <article
+          class="rounded-3xl gap-6 mt-6 w-[90%] md:gap-6 md:px-10 md:py-8 md:col-start-2"
+        >
+          <img
+            class="mx-auto w-full size-[80%] md:w-[548px] md:h-[348px] object-cover md:rounded-3xl"
+            src="../assets/images/Frame 427321285.png"
+            alt=""
+          />
+        </article>
+        <article
+          class="md:shadow-comment md:border md:border-[#F5F6F8] md:px-10 md:py-8 md:rounded-3xl md:w-[548px] md:text-right flex flex-col md:col-start-1 md: md:row-span-2"
+        >
+          <article class="mx-auto text-center">
+            <h2 class="text-[#141414] font-bold text-xl">درباره‌ من</h2>
+            <h1 class="text-[#575757] text-[28px] font-extrabold">
+              محمد محمدی
+            </h1>
+          </article>
+          <article
+            class="mx-auto w-[90%] border border-[#F5F6F8] shadow-comment md:shadow-none md:border-none gap-2 p-4 bg-[#FFFFFF] rounded-2xl"
+          >
+            <p class="text-[#444749] text-center text-[15px] leading-[30px]">
+              کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از استورهای معتبر
+              اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل علاوه بر
+              دانلود نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن
+              استفاده نمایند. کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از
+              استورهای معتبر اندروید دانلود نمایند. همچنین کاربران سیستم عامل
+              اپل علاوه بر دانلود نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی
+              بر وب آن استفاده نمایند. کاربران اندروید می‌توانند اپلیکیشن
+              کوئرالیست را از استورهای معتبر اندروید دانلود نمایند. همچنین
+              کاربران سیستم عامل اپل علاوه بر دانلود نرم‌افزار از اپل‌استور
+              می‌توانند از نسخه مبتنی بر وب آن استفاده نمایند.
+            </p>
+          </article>
+        </article>
+        <article class="w-[80%] md:col-span-1 md:self-center">
+          <article class="flex flex-row justify-between">
+            <div
+              class="shadow-comment border border-[#F5F6F8] rounded-2xl w-[40%] flex flex-col gap-3 px-3 py-4 align-middle"
+            >
+              <h3 class="text-[#070D31] text-[18px] font-bold">1379</h3>
+              <p class="text-[#444749] text-xs font-normal">سال تولد</p>
+            </div>
+            <div
+              class="shadow-comment border border-[#F5F6F8] rounded-2xl w-[40%] flex flex-col gap-3 px-3 py-4 align-middle"
+            >
+              <h3 class="text-[#070D31] text-[18px] align-middle font-bold">
+                تهران
+              </h3>
+              <p class="text-[#444749] text-xs font-normal">محل زندگی</p>
+            </div>
+          </article>
+          <article class="flex flex-row justify-between md: ">
+            <div
+              class="shadow-comment border border-[#F5F6F8] rounded-2xl w-[40%] flex flex-col gap-3 px-3 py-4 align-middle"
+            >
+              <h3 class="text-[#070D31] text-[18px] font-bold">3.5</h3>
+              <p class="text-[#444749] text-xs font-normal">سال تجربه کار</p>
+            </div>
+            <div
+              class="shadow-comment border border-[#F5F6F8] rounded-2xl w-[40%] flex flex-col gap-3 px-3 py-4 align-middle"
+            >
+              <h3 class="text-[#070D31] text-[18px] align-middle font-bold">
+                +10
+              </h3>
+              <p class="text-[#444749] text-xs font-normal">مشارکت در پروژه‌</p>
+            </div>
+          </article>
+        </article>
+
+        <!-- <article class="flex flex-col gap-4  ">
+          <article class=" flex flex-row gap-4  w-full">
+            <div class="px-3 py-4 gap-2 bg-[#FFFFFF] border border-[#F5F6F8] shadow-comment rounded-2xl" >
+              <h3 class="text-[#070D31] text-[18px] ">1379</h3>
+              <p>سال تولد</p>
+            </div>
+            <div class="px-3 py-4 gap-2 bg-[#FFFFFF] border border-[#F5F6F8] shadow-comment rounded-2xl" >
+              <h3 class="text-[#070D31] text-[18px] ">1379</h3>
+              <p>سال تولد</p>
+            </div>
+          </article>
+          <article class=" flex flex-row gap-4">
+            <div class="px-3 py-4 gap-2 bg-[#FFFFFF] border border-[#F5F6F8] shadow-comment rounded-2xl" >
+              <h3 class="text-[#070D31] text-[18px] ">1379</h3>
+              <p>سال تولد</p>
+            </div>
+            <div class="px-3 py-4 gap-2 bg-[#FFFFFF] border border-[#F5F6F8] shadow-comment rounded-2xl" >
+              <h3 class="text-[#070D31] text-[18px] ">1379</h3>
+              <p>سال تولد</p>
+            </div>
+          </article>
+
+        </article> -->
+      </section>
     </main>
     <footer class="bg-white dark:bg-gray-800 w-full py-8">
       <!-- موبایل -->
