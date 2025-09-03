@@ -211,7 +211,7 @@
         />
       </section>
 
-      <section class="flex flex-col gap-[24px] md:gap-[128px] dark:bg-[#040810]">
+      <section class="flex flex-col gap-[24px] md:gap-[128px] dark:bg-[#040810] relative">
         
         <!-- Application feature  -->
         <section class="flex flex-col md:gap-10 mt-[5rem] dark:bg-[#040810]"  id="application-feature">
@@ -419,9 +419,10 @@
                </p>
              </section>
      
-               <section class=" hidden md:flex flex-row  md:flex-row md:flex-wrap  md:w-[1120px] md:justify-between">
+               <section class=" hidden relative md:flex flex-row  md:flex-row md:flex-wrap  md:w-[1120px] md:justify-between ">
                <!-- 1 -->
-               <div class=" md:flex flex-col gap-6  md:w-[357px]">
+               <div class="relative md:flex flex-col gap-6  md:w-[357px]">
+
                  <div
                    class=" hidden md:px-8 md:py-6 md:flex flex-col gap-2 md:gap-6 rounded-2xl bg-[#FFFFFF] dark:bg-[#0B192D] shadow-comment"
                  >
@@ -473,11 +474,11 @@
      
                <!-- 2 -->
      
-               <div class="flex overflow-x-autoauto  md:flex-col gap-6 md:w-[357px]">
+               <div class="flex z-10  md:flex-col gap-6 md:w-[357px]">
                  <div
                    class="md:px-8 md:py-6 snap-center   md:flex md:flex-col gap-6 rounded-2xl bg-[#FFFFFF] dark:bg-[#0B192D] shadow-comment"
                  >
-                   <div class="max-w-[293px] flex flex-shrink-0 h-auto flex-row gap-[17.01px]">
+                   <div class="max-w-[293px]  flex flex-shrink-0 h-auto flex-row gap-[17.01px]">
                      <img src="../assets/images/user2.png" alt="user2" />
                      <div
                        class="gap-[4.25px] flex flex-col justify-center font-vazir"
@@ -574,7 +575,8 @@
                    </p>
                  </div>
                </div>
-             </section>
+               
+              </section>
              <section>
                <div class="relative w-full max-w-4xl mx-auto">
           
@@ -666,7 +668,10 @@
                </button>
              </div>
       </section>
-  
+
+      <!-- decor -->
+        <div class=" rounded-full z-10  bg-gradient-to-b from-blue-300 to-white  inline-block absolute  opacity-10 bottom-[40rem] left-[-152px] w-[350px] h-[350px]  dark:hidden "></div>
+      
     </section>
     <section>
     </section>
