@@ -1,19 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fa-IR" dir="rtl" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
-</head>
-<body>
-    <nav>
-        <!-- navbar -->
-    </nav>
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            boxShadow: {
+              add: "0px 4px 58.5px 0px #0000000F",
+            },
+          },
+        },
+      };
+    </script>
 
-    <main>
-        <!-- main content -->
+    <title>Todo App</title>
+  </head>
+  <body>
+    <nav>
+      <!-- navbar  -->
+    </nav>
+    <main class="w-[90%] mr-4 flex flex-col gap-6">
+      <!-- main -->
+      <section class="flex flex-col gap-4 mx-auto" id="complited_task">
+        <article class="flex flex-col gap-1">
+          <h2 class="font-extrabold text-[16px] text-[#242424] text-right">
+            تسک‌های امروز
+          </h2>
+          <p class="font-normal text-xs text-right text-[#696969]">
+            تسکی برای امروز نداری!
+          </p>
+        </article>
+
+        <article class="">
+          <div
+            class="flex flex-row gap-4 rounded-xl border border-dashed border-[#CCCCCC] py-4 pr-4 bg-[#FFFFFF]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 text-sm text-[#007BFF]"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 4.5v15m7.5-7.5h-15"
+              />
+            </svg>
+            <p class="font-semibold text-sm text-right text-[#007BFF]">
+              افزودن وظیفه جدید
+            </p>
+          </div>
+        </article>
+
+        <!-- bg -->
+
+        <article class="flex flex-col mx-auto gap-6 w-[65%]">
+          <div>
+            <img
+              class="mx-auto"
+              src="../assets/images/2143202_Artboard 1.svg"
+              alt="Artboard"
+            />
+          </div>
+          <div class="mx-auto gap-2">
+            <h3 class="font-extrabold text-[16px] text-center text-[#7D7D7F]">
+              چه کارهایی امروز برای انجام داری؟
+            </h3>
+            <p class="font-semibold text-sm text-center text-[#AFAEB2]">
+              میتونی الان تسک‌هاتو اینجا بنویسی و برنامه ریزی رو شروع کنی!
+            </p>
+          </div>
+        </article>
+
+        <article
+          class="border border-[#E9E9E9] py-4 hidden flex-col gap-4 bg-[#FFFFFF] shadow-add rounded-xl"
+        >
+          <div class="flex flex-col gap-6 border-b-2">
+            <div class="flex flex-col gap-2 px-4 pb-4">
+              <input
+                type="text"
+                placeholder="نام تسک"
+                class="border-none font-semibold text-sm text-[#7D7D7F]"
+              />
+              <input
+                type="text"
+                placeholder="توضیحات"
+                class="text-xs font-normal text-[#AFAEB2]"
+              />
+            </div>
+            <div
+              class="flex border border-[#E9E9E9] rounded-[4px] px-2 py-1 mx-4 my-4 gap-1 w-1/6"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-4 text-[#AFAEB2]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 6h.008v.008H6V6Z"
+                />
+              </svg>
+
+              <p class="text-xs font-semibold text-[#AFAEB2]">تگ‌ها</p>
+            </div>
+            <div
+              class="w-[213.91px] h-[43px] rounded-lg border p-[10px] flex gap-4 bg-[#FFFFFF] shadow-add mx-4 mb-6"
+            >
+              <div class="px-2 py-1 gap-2 bg-[#C3FFF1] rounded-[4px]">
+                <p class="font-bold text-xs text-[#11A483]">پایین</p>
+              </div>
+              <div class="px-4 border-r-2 border-l-2 border-[#EBEDEF]">
+                <div class="px-2 py-1 gap-2 bg-[#FFEFD6] rounded-[4px]">
+                  <p class="font-bold text-xs text-[#11A483]">پایین</p>
+                </div>
+              </div>
+              <div class="px-2 py-1 gap-2 bg-[#FFE2DB] rounded-[4px]">
+                <p class="font-bold text-xs text-[#11A483]">پایین</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-end gap-3 pl-[15px]">
+            <button class="p-2 rounded-md bg-[#F5F5F5]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <button
+              class="font-semibold text-xs w-[40%] text-[#FFFFFF] bg-[#007BFF] rounded-md px-1 py-4 opacity-60"
+            >
+              اضافه کردن تسک
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- uncompleted tasks -->
+      <section class="mr-4 flex flex-col gap-3">
+        <article>
+          <ul class="">
+            <li
+              class="w-[328px] rounded-xl border flex justify-between px-4 py-3 bg-[#FFFFFF] border-[#E9E9E9]"
+            >
+              <div>
+                <div>
+                  <div class="flex flex-row gap-3">
+                    <input
+                      type="checkbox"
+                      class="rounded-[5px] border-[#CCCCCC] checked:"
+                    />
+                    <h3>جلسه با مدیران پروژه</h3>
+                  </div>
+                  <div
+                    class="mr-3 w-[15%] rounded-[4px] bg-[#FFE2DB] px-2 py-1"
+                  >
+                    <p
+                      class="font-semibold text-[10px] text-center text-[#FF5F37]"
+                    >
+                      بالا
+                    </p>
+                  </div>
+                </div>
+
+                <p>جلسه با محسن یگانه و مریم جلالی</p>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
+                />
+              </svg>
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- completed task -->
+      <section class="mr-4 flex flex-col gap-3" id="completed_task">
+        <article class="flex flex-col gap-1">
+          <h2 class="font-extrabold text-[16px] text-[#242424] text-right">
+            تسک‌های امروز
+          </h2>
+          <p class="font-normal text-xs text-right text-[#696969]">
+            تسکی برای امروز نداری!
+          </p>
+        </article>
+        <article>
+          <ul>
+            <li
+              class="flex flex-row gap-4 w-[328px] h-[66px] justify-between items-center border rounded-xl px-4 py-3 bg-[#FFFFFF] border-[#E9E9E9] border-r-[4px] border-r-[#FFAF37]"
+            >
+              <input type="checkbox" class="align-middle" />
+              <p
+                class="line-through text-right font-semibold text-sm align-middle text-[#323233]"
+              >
+                خرید میوه و سبزیجات و لبنیات برای خانه
+              </p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
+                />
+              </svg>
+            </li>
+            <li
+              class="flex flex-row gap-4 w-[328px] h-[66px] justify-between items-center border rounded-xl px-4 py-3 bg-[#FFFFFF] border-[#E9E9E9] border-r-[4px] border-r-[#FF5F37]"
+            >
+              <input type="checkbox" class="align-middle" />
+              <p
+                class="line-through text-right font-semibold text-sm align-middle text-[#323233]"
+              >
+                خرید میوه و سبزیجات و لبنیات برای خانه
+              </p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
+                />
+              </svg>
+            </li>
+            <li
+              class="flex flex-row gap-4 w-[328px] h-[66px] justify-between items-center border rounded-xl px-4 py-3 bg-[#FFFFFF] border-[#E9E9E9] border-r-[4px] border-r-[#11A483]"
+            >
+              <input type="checkbox" class="align-middle" />
+              <p
+                class="line-through text-right font-semibold text-sm align-middle text-[#323233]"
+              >
+                خرید میوه و سبزیجات و لبنیات برای خانه
+              </p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
+                />
+              </svg>
+            </li>
+          </ul>
+        </article>
+      </section>
     </main>
-    
-</body>
+    <script src="./todoApp.js"></script>
+  </body>
 </html>
