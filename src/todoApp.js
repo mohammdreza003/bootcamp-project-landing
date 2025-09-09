@@ -5,9 +5,7 @@ document
   .addEventListener("click", inputNewTask);
 document.querySelector("#add-todo-btn").addEventListener("click", addTodo);
 
-// ---- tag btn
 
-// document.querySelector("#tag-btn").addEventListener("click", showTag);
 // ---- option for task 
 function moreOptionInput(){
   const option  = document.querySelector("#option")
@@ -109,7 +107,6 @@ function inputNewTask() {
   image.insertAdjacentElement("afterend", inputDiv);
 }
 function showTag() {
-  // const container = document.querySelector("#input-container");
   const tagBtn = document.querySelector("#tag-btn");
   const wrapper = document.createElement("div");
   const oldTag = document.querySelector("#tags-div");
