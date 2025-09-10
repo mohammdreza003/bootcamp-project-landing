@@ -3,20 +3,25 @@ const todos = [];
 document
   .querySelector("#add-new-todo-btn")
   .addEventListener("click", inputNewTask);
+
 document.querySelector("#add-todo-btn").addEventListener("click", addTodo);
 
 
-// ---- option for task 
-function moreOptionInput(){
-  const option  = document.querySelector("#option")
-  option.classList.toggle("hidden")
+
+// ---- option for task
+function moreOptionInput() {
+  const option = document.querySelector("#option");
+  option.classList.toggle("hidden");
+  option.classList.toggle("flex");
 }
 
+// new task input box
 function inputNewTask() {
   const image = document.querySelector("#bg-image");
 
   // ---- hide image when input div appear .
   image.classList.toggle("hidden");
+  image.classList.toggle("flex")
 
   // ---- check input container exist
 
@@ -32,7 +37,7 @@ function inputNewTask() {
           class="border border-[#E9E9E9] py-4 flex  flex-col gap-4  bg-[#FFFFFF] shadow-add rounded-xl  md:w-[744px]"
           id="input-container"
         >
-          <div class="flex flex-col gap-6 border-b-2">
+          <div class="flex flex-col gap-6 ">
             <div class="flex flex-col gap-2 px-4 pb-4">
               <input
                 type="text"
@@ -119,23 +124,48 @@ function showTag() {
               class="w-[213.91px] h-[43px] rounded-lg border p-[10px] flex gap-4 bg-[#FFFFFF] shadow-add mx-4 mb-6"
               id="tags-div"
             >
-              <button value="low" class="px-2 py-1 gap-2 bg-[#C3FFF1] rounded-[4px]">
+              <button
+                data-tag="low"
+                value="low"
+                class="px-2 py-1 gap-2 bg-[#C3FFF1] rounded-[4px]"
+              >
                 <p class="font-bold text-xs text-[#11A483]">پایین</p>
               </button>
-              <button value="medium" class="px-4 border-r-2 border-l-2 border-[#EBEDEF]">
+              <button
+                data-tag="medium"
+                value="medium"
+                class="px-4 border-r-2 border-l-2 border-[#EBEDEF]"
+              >
                 <div class="px-2 py-1 gap-2 bg-[#FFEFD6] rounded-[4px]">
                   <p class="font-bold text-xs text-[#FFAF37]">متوسط</p>
                 </div>
               </button>
-              <button value="high" class="px-2 py-1 gap-2 bg-[#FFE2DB] rounded-[4px]">
+              <button
+                data-tag="high"
+                value="high"
+                class="px-2 py-1 gap-2 bg-[#FFE2DB] rounded-[4px]"
+              >
                 <p class="font-bold text-xs text-[#FF5F37]">بالا</p>
               </button>
             </div> `;
   const tagsDiv = wrapper.firstElementChild;
 
   tagBtn.insertAdjacentElement("afterend", tagsDiv);
+  
+}
+// ---- get priority
+
+function getPriority(){
+  const buttons = document.querySelectorAll("#tags-div button");
+  buttons.forEach(button =>{
+    button.addEventListener("click" , (event) =>{
+      const tag = event.currentTarget.dataset.tag;
+      console.log(tag)
+    })
+  })
 }
 
+// ---- get data for todo
 function addTodo() {
   const title = document.querySelector("#input-title");
   const descriptionTask = document.querySelector("#input-discription");
@@ -149,3 +179,5 @@ function addTodo() {
   todos.push(todo);
   console.log(todos);
 }
+
+getPriority()
