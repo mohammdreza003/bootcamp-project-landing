@@ -9,7 +9,7 @@
   <body>
     <header
       id="mobile-header"
-      class="fixed bg-white top-0 left-0 right-0 flex items-center justify-between gap-2 h-[49px] w-full py-3 px-4 lg:hidden dark:bg-gray-800 dark:text-white"
+      class="fixed bg-white top-0 left-0 right-0 flex items-center justify-between gap-2 h-[49px] w-full py-3 px-4 lg:hidden dark:bg-black dark:text-white"
     >
       <img
         id="burgerBtn"
@@ -30,10 +30,16 @@
       <div
         class="flex items-center justify-around gap-16 w-128 h-8 font-semibold text-base text-[20px]"
       >
-        <div class="text-center leading-[100%]">کوئرا لیست</div>
-        <a href="index.html" class="text-[#666666]">صفحه اصلی</a>
+        <div class="text-center leading-[100%] dark:text-[#ffff]">
+          کوئرا لیست
+        </div>
+        <a href="index.html" class="text-[#666666] dark:text-[#CFCFCF]"
+          >صفحه اصلی</a
+        >
         <a href="aboutUs.html" class="text-[#2C7EF8]">درباره ما</a>
-        <a href="contactUs.html" class="text-[#666666]">ارتباط با ما</a>
+        <a href="contactUs.html" class="text-[#666666] dark:text-[#CFCFCF]"
+          >ارتباط با ما</a
+        >
       </div>
 
       <div class="flex gap-4 items-center justify-center relative">
@@ -50,10 +56,11 @@
     </header>
     <ul
       id="dropdownMode"
-      class="hidden flex-col justify-center w-[240px] h-[184px] gap-4 p-6 border rounded-lg absolute left-[104px] top-[72px] bg-[#FFFFFF]"
+      class="hidden flex-col justify-center w-[240px] h-[184px] gap-4 p-6 border rounded-lg absolute left-[104px] top-[72px] bg-[#FFFFFF] dark:bg-[#0B192D] dark:border-[#293242] dark:text-white"
     >
       <li
-        class="flex justify-between border-b border-[#EBEDEF] pb-3 cursor-pointer"
+        data-mode="light"
+        class="flex justify-between border-b border-[#EBEDEF] pb-3 cursor-pointer dark:border-[#293242]"
       >
         <div class="flex gap-2">
           <img src="../assets/images/light-outline.png" alt="light" />
@@ -66,9 +73,10 @@
         />
       </li>
       <li
-        class="flex justify-between border-b border-[#EBEDEF] pb-3 cursor-pointer"
+        data-mode="dark"
+        class="flex justify-between border-b border-[#EBEDEF] pb-3 cursor-pointer dark:border-[#293242]"
       >
-        <div class="flex gap-2">
+        <div class="flex gap-2" id="darkModeBtn">
           <img src="../assets/images/dark-outline.png" alt="dark" />
           <div>حالت تاریک</div>
         </div>
@@ -78,7 +86,7 @@
           class="hidden"
         />
       </li>
-      <li class="flex justify-between cursor-pointer">
+      <li class="flex justify-between cursor-pointer" data-mode="system">
         <div class="flex gap-2">
           <img src="../assets/images/light-dark.png" alt="light-dark" />
           <div>پیروی از دستگاه</div>
@@ -91,10 +99,10 @@
       </li>
     </ul>
 
-    <main class="mt-8">
+    <main class="mt-8 dark:bg-black dark:text-white">
       <!-- محتوای اصلی صفحه اینجاست -->
     </main>
-    <footer class="bg-white dark:bg-gray-800 w-full py-8">
+    <footer class="bg-white w-full py-8 dark:bg-black dark:text-white">
       <!-- موبایل -->
       <div
         id="mobile-footer"
@@ -116,15 +124,15 @@
           </div>
 
           <div
-            class="w-full max-w-[328px] h-[55px] flex justify-between items-center border border-[#A1A1A1] py-[10px] px-[16px] rounded-xl"
+            class="w-full max-w-[328px] h-[55px] flex justify-between items-center gap-3 border border-[#A1A1A1] py-[10px] px-[16px] rounded-xl"
           >
             <input
-              class="flex-1 rounded-md border-none outline-none text-sm"
+              class="flex-1 rounded-md border-none outline-none text-sm h-[30px] px-4"
               type="email"
               placeholder="ایمیل"
             />
             <button
-              class="bg-[#2C7EF8] text-white font-black text-sm w-[65px] h-[36px] rounded-md"
+              class="bg-[#2C7EF8] text-white font-black text-sm w-[45px] h-[30px] rounded-md"
             >
               ارسال
             </button>
@@ -132,18 +140,20 @@
 
           <div class="flex w-full max-w-[328px] gap-4">
             <div
-              class="flex-1 px-4 py-3 rounded-xl border border-[#e9e9eb] flex flex-col items-center justify-center text-xs text-center"
+              class="flex-1 px-4 py-3 rounded-xl border border-[#e9e9eb] flex flex-col items-center justify-center text-xs text-center dark:bg-[#081021] dark:border-none"
             >
               <img
                 src="../assets/images/Frame 1000005390 (3).png"
                 alt="location"
               />
-              آدرس دفتر مرکزی: پونک - خیابان اشرفی اصفهانی - خیابان صبحدل- بن
-              بست شب بو
+              <div class="text-xs">
+                آدرس دفتر مرکزی: پونک - خیابان اشرفی اصفهانی - خیابان صبحدل- بن
+                بست شب بو
+              </div>
             </div>
             <div class="flex flex-col flex-1 gap-4">
               <div
-                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3"
+                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3 dark:bg-[#081021] dark:border-none"
               >
                 <img
                   class="w-[30px] h-[30px]"
@@ -156,7 +166,7 @@
                 </div>
               </div>
               <div
-                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3"
+                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3 dark:bg-[#081021] dark:border-none"
               >
                 <img
                   class="w-[30px] h-[30px]"
@@ -180,7 +190,7 @@
       <!-- دسکتاپ -->
       <div
         id="desktop-footer"
-        class="hidden lg:flex lg:flex-col lg:gap-6 lg:items-center"
+        class="hidden lg:flex lg:flex-col lg:gap-6 lg:items-center dark:bg-black dark:text-white"
       >
         <div class="flex items-center justify-center w-[573px] h-[61px]">
           <div class="w-[223px] h-[1px] bg-[#AFAFAF]"></div>
@@ -224,15 +234,15 @@
               بشی.
             </div>
             <div
-              class="w-full h-[48px] flex justify-between items-center border border-[#A1A1A1] py-2 px-4 rounded-xl"
+              class="w-full h-[48px] flex justify-between items-center gap-3 border border-[#A1A1A1] py-2 px-4 rounded-xl"
             >
               <input
-                class="flex-1 rounded-md border-none outline-none"
+                class="flex-1 rounded-md border-none outline-none h-[30px] px-4"
                 type="email"
                 placeholder="ایمیل"
               />
               <button
-                class="bg-[#2C7EF8] text-white font-black text-sm w-[65px] h-[36px] rounded-md"
+                class="bg-[#2C7EF8] text-white font-black text-sm w-[45px] h-[30px] rounded-md"
               >
                 ارسال
               </button>
@@ -246,4 +256,5 @@
     </footer>
     <script src="./main.js"></script>
   </body>
+  
 </html>
