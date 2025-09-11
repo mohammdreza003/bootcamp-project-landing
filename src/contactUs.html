@@ -1,22 +1,555 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <header>
-        <!-- هدر اینجا تعریف میشه -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              light: {
+                primary: "#2C7EF8",
+                "primary-hover": "#075CD9",
+                "on-primary": "#FFFFFF",
+                "on-background": "#191C1E",
+                "about-us-bgcolor": "#EBF3FE",
+                "input-border": "#E6E6E6",
+              },
+              dark: {
+                primary: "#3A86F8",
+                "primary-hover": "#6BA4FA",
+                background: "#040810",
+                "on-background": "#E6E9EF",
+                surface: "#E6E9EF",
+                "a-dark": "#CFCFCF",
+                "a-hover-dark": "#037FFF",
+                "text-color": "#ffffff",
+                "about-bg": "#122549",
+                "card-bg": "#0B192D",
+                "about-me-card": "#0E1E34",
+              },
+            },
+            boxShadow: {
+              app: "0px 0px 24px 0px rgba(0, 0, 0, 0.05)",
+              comment: "0px 4px 63px 0px rgba(0, 0, 0, 0.04)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="dark:bg-gray-950 bg-[#F5F6F8] lg:bg-white">
+    <header
+      id="mobile-header"
+      class="fixed bg-white top-0 left-0 right-0 flex items-center justify-between gap-2 h-[49px] w-full py-3 px-4 lg:hidden dark:bg-gray-950 dark:text-white"
+    >
+      <img
+        id="burgerBtn"
+        src="../assets/images/Frame 12160.png"
+        alt="hamburgur menu"
+      />
+      <div
+        class="font-semibold text-base leading-[100%] absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+      >
+        کوئرا لیست
+      </div>
     </header>
 
-    <main>
-        <!-- محتوای اصلی صفحه اینجاست -->
+    <header
+      id="desktop-header"
+      class="fixed bg-white top-0 left-0 right-0 hidden lg:flex items-center justify-between h-[80px] w-full py-6 px-4 mx-auto dark:bg-gray-950"
+    >
+      <div
+        class="flex items-center justify-around gap-16 w-128 h-8 font-semibold text-base text-[20px]"
+      >
+        <div class="text-center leading-[100%] dark:text-[#ffff]">
+          کوئرا لیست
+        </div>
+        <a href="index.html" class="text-[#666666] dark:text-[#CFCFCF]"
+          >صفحه اصلی</a
+        >
+        <a href="aboutUs.html" class="text-[#666666] dark:text-[#CFCFCF]"
+          >درباره ما</a
+        >
+        <a href="contactUs.html" class="text-[#2C7EF8]">ارتباط با ما</a>
+      </div>
+
+      <div class="flex gap-4 items-center justify-center relative">
+        <button class="w-42 h-10 bg-[#2C7EF8] text-white rounded-md py-2 px-6">
+          ورود به اپلیکیشن
+        </button>
+        <img
+          id="dropdownBtn"
+          src="../assets/images/Frame 12159.png"
+          alt="dark/light mode"
+          class="border rounded-md border-[#E3E3E3] h-[40px] w-[40px] cursor-pointer dark:border-[#2F3132]"
+        />
+      </div>
+    </header>
+
+    <ul
+      id="dropdownMode"
+      class="hidden flex-col justify-center shadow w-[240px] gap-4 px-3 border rounded-lg absolute left-[30px] top-[80px] bg-[#FFFFFF] dark:bg-[#0B192D] dark:border-[#293242] dark:text-white z-30"
+    >
+      <li
+        data-mode="light"
+        class="flex justify-between border-b border-[#EBEDEF] py-2 cursor-pointer dark:border-[#293242]"
+      >
+        <div class="flex gap-2">
+          <img src="../assets/images/light-outline.png" alt="light" />
+          <div>حالت روشن</div>
+        </div>
+        <img
+          src="../assets/images/tick-outline.png"
+          alt="tick"
+          class="hidden"
+        />
+      </li>
+      <li
+        data-mode="dark"
+        class="flex justify-between border-b border-[#EBEDEF] py-2 cursor-pointer dark:border-[#293242]"
+      >
+        <div class="flex gap-2" id="darkModeBtn">
+          <img src="../assets/images/dark-outline.png" alt="dark" />
+          <div>حالت تاریک</div>
+        </div>
+        <img
+          src="../assets/images/tick-outline.png"
+          alt="tick"
+          class="hidden"
+        />
+      </li>
+      <li class="flex justify-between cursor-pointer py-2" data-mode="system">
+        <div class="flex gap-2">
+          <img src="../assets/images/light-dark.png" alt="light-dark" />
+          <div>پیروی از دستگاه</div>
+        </div>
+        <img
+          src="../assets/images/tick-outline.png"
+          alt="tick"
+          class="hidden"
+        />
+      </li>
+    </ul>
+
+    <main
+      id="mobile-main"
+      class="mt-[73px] lg:hidden dark:bg-gray-950 dark:text-white"
+    >
+      <!-- محتوای اصلی صفحه اینجاست -->
+      <div
+        class="flex flex-col justify-center items-center w-[312px] mx-auto gap-[8px]"
+      >
+        <div class="text-right font-bold text-[24px]">تماس با ما</div>
+        <div class="text-center font-normal text-[14px]">
+          چیزی هست که بخوای ازم بپرسی؟ خوشحال میشم بتونم بهت کمکی کنم.
+        </div>
+      </div>
+
+      <form
+        action=""
+        class="bg-white flex flex-col gap-[24px] rounded-[16px] p-4 border border-[#F5F6F8] mx-[16px] my-[50px] dark:bg-[#0B192D]"
+      >
+        <!-- نام و نام خانوادگی -->
+
+        <div class="flex gap-[16px] justify-between items-center">
+          <div class="flex flex-col gap-[8px] w-1/2">
+            <label for="name">نام:</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="نام شما"
+              class="px-[8px] py-[10px] rounded-[6px] border border-[#E6E6E6] dark:border-[#6D7581] dark:text-[#6D7581] dark:bg-[#0B192D] h-[40px] w-full"
+            />
+          </div>
+          <div class="flex flex-col gap-[8px] w-1/2">
+            <label for="familyName">نام خانوادگی:</label>
+            <input
+              type="text"
+              id="familyName"
+              placeholder="نام خانوادگی شما"
+              class="px-[8px] py-[10px] rounded-[6px] border border-[#E6E6E6] dark:border-[#6D7581] dark:text-[#6D7581] dark:bg-[#0B192D] h-[40px] w-full"
+            />
+          </div>
+        </div>
+
+        <!-- ایمیل -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="email">ایمیل:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="ایمیل شما"
+            class="rounded-[6px] border border-[#E6E6E6] dark:border-[#6D7581] dark:text-[#6D7581] dark:bg-[#0B192D] h-[40px] px-[8px] py-[10px] w-full"
+          />
+        </div>
+
+        <!-- شماره تماس -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="number">شماره تماس:</label>
+          <input
+            type="number"
+            id="number"
+            placeholder="شماره تماس شما"
+            class="rounded-[6px] border border-[#E6E6E6] dark:border-[#6D7581] dark:text-[#6D7581] dark:bg-[#0B192D] h-[40px] px-[8px] py-[10px] w-full appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+          />
+        </div>
+
+        <!-- متن -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="text">متن:</label>
+          <textarea
+            name="text"
+            id="text"
+            class="h-[128px] rounded-[6px] border border-[#E6E6E6] dark:border-[#6D7581] dark:text-[#6D7581] dark:bg-[#0B192D] w-full px-[8px] py-[10px] resize-none"
+            placeholder="متن شما"
+          ></textarea>
+        </div>
+        <button
+          class="h-[40px] w-full max-w-[296px] mx-auto bg-[#2C7EF8] text-[#FFFFFF] py-[8px] px-[40px] rounded-[8px]"
+        >
+          ارسال پیام
+        </button>
+      </form>
+
+      <div class="flex flex-col mx-[16px] my-[50px] gap-[16px]">
+        <!-- ردیف اول کارت‌ها -->
+        <div class="flex justify-between items-center gap-4">
+          <div
+            class="bg-white flex-1 flex gap-2 items-center justify-center py-3 px-2 dark:bg-[#0B192D] dark:border-none rounded-[12px] border border-[#F5F6F8] shadow-[0_0_4px_0_#00000008]"
+          >
+            <img
+              class="w-[35px] h-[35px] rounded-full"
+              src="../assets/images/Frame 1000005390 (5).png"
+              alt="email"
+            />
+            <div class="font-bold text-[10px] text-center">
+              ایمیل <br />QueraList@gmail.com
+            </div>
+          </div>
+
+          <div
+            class="bg-white flex-1 flex gap-2 items-center justify-center py-3 px-2 dark:bg-[#0B192D] dark:border-none rounded-[12px] border border-[#F5F6F8] shadow-[0_0_4px_0_#00000008]"
+          >
+            <img
+              class="w-[35px] h-[35px] rounded-full"
+              src="../assets/images/Frame 1000005390 (6).png"
+              alt="phone"
+            />
+            <div class="font-bold text-[10px] text-center">
+              شماره تماس <br />021-44445566
+            </div>
+          </div>
+        </div>
+
+        <!-- ردیف شبکه‌های اجتماعی -->
+        <div
+          class="bg-white flex justify-center items-center gap-[16px] h-[56px] rounded-[12px] dark:bg-[#0B192D] dark:border-none border border-[#F5F6F8] shadow-[0_0_4px_0_#00000008]"
+        >
+          <img
+            class="w-[35px]"
+            src="../assets/images/Frame 1000005392.png"
+            alt="github"
+          />
+          <img
+            class="w-[35px]"
+            src="../assets/images/Frame 1000005391 (2).png"
+            alt="twitter"
+          />
+          <img
+            class="w-[35px]"
+            src="../assets/images/Frame 1000005390 (7).png"
+            alt="linkedin"
+          />
+        </div>
+      </div>
     </main>
 
-    <footer>
-        <!-- فوتر این قسمت قرار میگیره -->
+    <main
+      id="desktop-main"
+      class="hidden lg:mt-[120px] lg:flex lg:flex-row gap-[32px] lg:w-full lg:max-w-[1200px] lg:mx-auto lg:px-[40px] lg:py-[32px] lg:rounded-[24px] lg:border lg:border-[#F5F6F8] lg:bg-[#FFFFFF] lg:shadow-[0_0_4px_0_#00000008] dark:text-white dark:bg-[#081629] dark:border-none"
+    >
+      <div
+        class="flex flex-col gap-[32px] dark:border-l dark:border-[#293242] pl-4"
+      >
+        <div class="flex flex-col gap-[12px]">
+          <div class="font-bold text-[40px]">تماس با‌ من</div>
+          <div class="text-[#6F7076] font-normal text-[20px]">
+            چیزی هست که بخوای ازم بپرسی؟ خوشحال میشم بتونم بهت کمکی کنم.
+          </div>
+        </div>
+
+        <div class="w-[470px] h-[450px] flex flex-col gap-4">
+          <div
+            class="w-full flex gap-[10px] items-center justify-start dark:text-[#E6E6E6]"
+          >
+            <img
+              class="w-[40px] h-[40px] rounded-[50px]"
+              src="../assets/images/Frame 1000005390 (5).png"
+              alt="email"
+            />
+            <div class="font-semibold text-[18px] text-right">
+              QueraList@gmail.com
+            </div>
+          </div>
+
+          <div
+            class="w-full flex gap-[10px] items-center justify-start dark:text-[#E6E6E6]"
+          >
+            <img
+              class="w-[40px] h-[40px] rounded-[50px]"
+              src="../assets/images/Frame 1000005390 (6).png"
+              alt="phone"
+            />
+            <div class="font-semibold text-[18px] text-right">021-44445566</div>
+          </div>
+          <div
+            class="flex justify-start items-center gap-[16px] h-[56px] mt-auto"
+          >
+            <img
+              class="w-[40px]"
+              src="../assets/images/Frame 1000005392.png"
+              alt="github"
+            />
+            <img
+              class="w-[40px]"
+              src="../assets/images/Frame 1000005391 (2).png"
+              alt="twitter"
+            />
+            <img
+              class="w-[40px]"
+              src="../assets/images/Frame 1000005390 (7).png"
+              alt="linkedin"
+            />
+          </div>
+        </div>
+      </div>
+
+      <form
+        action=""
+        class="bg-white w-[471px] flex flex-col gap-[24px] rounded-[16px] p-5 border border-[#F5F6F8] mx-[16px] my-[50px] dark:bg-[#081629] dark:border-none"
+      >
+        <!-- نام و نام خانوادگی -->
+
+        <div class="flex gap-[16px] justify-between items-center">
+          <div class="flex flex-col gap-[8px]">
+            <label for="name">نام:</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="نام شما"
+              class="px-[8px] py-[10px] rounded-[6px] border border-[#E6E6E6] dark:border-[#6D7581] dark:text-[#6D7581] w-[200px] h-[40px] dark:bg-[#081629]"
+            />
+          </div>
+          <div class="flex flex-col gap-[8px]">
+            <label for="familyName">نام خانوادگی:</label>
+            <input
+              type="text"
+              id="familyName"
+              placeholder="نام خانوادگی شما"
+              class="px-[8px] py-[10px] rounded-[6px] border border-[#E6E6E6] dark:border-[#6D7581] dark:text-[#6D7581] w-[200px] h-[40px] dark:bg-[#081629]"
+            />
+          </div>
+        </div>
+
+        <!-- ایمیل -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="email">ایمیل:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="ایمیل شما"
+            class="rounded-[6px] border border-[#E6E6E6] dark:border-[#6D7581] dark:text-[#6D7581] h-[40px] px-[8px] py-[10px] w-full dark:bg-[#081629]"
+          />
+        </div>
+
+        <!-- شماره تماس -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="number">شماره تماس:</label>
+          <input
+            type="number"
+            id="number"
+            placeholder="شماره تماس شما"
+            class="rounded-[6px] border border-[#E6E6E6] dark:border-[#6D7581] dark:text-[#6D7581] h-[40px] px-[8px] py-[10px] w-full appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none dark:bg-[#081629]"
+          />
+        </div>
+
+        <!-- متن -->
+        <div class="flex flex-col gap-[8px] w-full">
+          <label for="text">متن:</label>
+          <textarea
+            name="text"
+            id="text"
+            class="h-[128px] rounded-[6px] border border-[#E6E6E6] dark:border-[#6D7581] dark:text-[#6D7581] w-full px-[8px] py-[10px] resize-none dark:bg-[#081629]"
+            placeholder="متن شما"
+          ></textarea>
+        </div>
+        <button
+          class="h-[40px] w-full bg-[#2C7EF8] text-[#FFFFFF] py-[8px] px-[40px] rounded-[8px]"
+        >
+          ارسال پیام
+        </button>
+      </form>
+    </main>
+
+    <footer
+      class="bg-[#F5F6F8] lg:bg-white w-full py-8 dark:text-white dark:bg-gray-950"
+    >
+      <!-- موبایل -->
+      <div
+        id="mobile-footer"
+        class="flex flex-col gap-3 items-center lg:hidden dark:bg-gray-950"
+      >
+        <div class="flex items-center justify-center w-full">
+          <div class="w-[120px] h-[1px] bg-[#AFAFAF]"></div>
+          <span class="text-base font-semibold mx-2">کوئرا لیست</span>
+          <div class="w-[120px] h-[1px] bg-[#AFAFAF]"></div>
+        </div>
+
+        <div class="w-full px-4 flex flex-col gap-6 items-center">
+          <div class="text-center">
+            <div class="font-bold text-sm">با ما در ارتباط باش</div>
+            <p class="font-normal text-xs mt-1">
+              اگه میخوای اولین نفری باشی که از فیچرهای جدید و تخفیفات با خبر
+              بشی.
+            </p>
+          </div>
+
+          <div
+            class="w-full max-w-[328px] h-[55px] flex justify-between items-center gap-3 border border-[#A1A1A1] py-[10px] px-[16px] rounded-xl"
+          >
+            <input
+              class="bg-[#F5F6F8] flex-1 rounded-md border-none outline-none text-sm h-[30px] px-4 dark:border-[#6D7581] dark:text-[#6D7581] dark:bg-gray-950"
+              type="email"
+              placeholder="ایمیل"
+            />
+            <button
+              class="bg-[#2C7EF8] text-white font-black text-sm w-[45px] h-[30px] rounded-md"
+            >
+              ارسال
+            </button>
+          </div>
+
+          <div class="flex w-full max-w-[328px] gap-4">
+            <div
+              class="flex-1 px-4 py-3 rounded-xl border border-[#e9e9eb] flex flex-col items-center justify-center text-xs text-center dark:bg-[#081021] dark:border-none"
+            >
+              <img
+                src="../assets/images/Frame 1000005390 (3).png"
+                alt="location"
+              />
+              <div class="text-xs">
+                آدرس دفتر مرکزی: پونک - خیابان اشرفی اصفهانی - خیابان صبحدل- بن
+                بست شب بو
+              </div>
+            </div>
+            <div class="flex flex-col flex-1 gap-4">
+              <div
+                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3 dark:bg-[#081021] dark:border-none"
+              >
+                <img
+                  class="w-[30px] h-[30px]"
+                  src="../assets/images/Frame 1000005390 (4).png"
+                  alt="phone"
+                />
+                <div class="text-xs">
+                  تلفن پشتیبانی<br />
+                  ۴۴۴۴۵۵۶۶ - ۰۲۱
+                </div>
+              </div>
+              <div
+                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3 dark:bg-[#081021] dark:border-none"
+              >
+                <img
+                  class="w-[30px] h-[30px]"
+                  src="../assets/images/Frame 1000005391 (1).png"
+                  alt="fax"
+                />
+                <div class="text-xs">
+                  فکس<br />
+                  ۴۴۴۴۵۵۶۶ - ۰۲۱
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-xs text-[#666666] text-center mt-4">
+            تمامی حقوق مادی و معنوی این سایت متعلق به کوئرا لیست می‌باشد.
+          </div>
+        </div>
+      </div>
+
+      <!-- دسکتاپ -->
+      <div
+        id="desktop-footer"
+        class="hidden lg:flex lg:flex-col lg:gap-6 lg:items-center dark:text-white dark:bg-gray-950"
+      >
+        <div class="flex items-center justify-center w-[573px] h-[61px]">
+          <div class="w-[223px] h-[1px] bg-[#AFAFAF]"></div>
+          <span class="text-[20px] mx-2">کوئرا لیست</span>
+          <div class="w-[223px] h-[1px] bg-[#AFAFAF]"></div>
+        </div>
+        <div class="w-full flex justify-around items-start">
+          <div class="flex flex-col gap-4 w-[329px]">
+            <div class="flex gap-3 items-center">
+              <img
+                class="w-[30px] h-[30px]"
+                src="../assets/images/Frame 1000005391 (1).png"
+                alt="fax"
+              />
+              <div class="text-[14px]">فکس: ۴۴۴۴۵۵۶۶ - ۰۲۱</div>
+            </div>
+            <div class="flex gap-3 items-center">
+              <img
+                class="w-[30px] h-[30px]"
+                src="../assets/images/Frame 1000005390 (4).png"
+                alt="phone"
+              />
+              <div class="text-[14px]">تلفن پشتیبانی: ۴۴۴۴۵۵۶۶ - ۰۲۱</div>
+            </div>
+            <div class="flex gap-3 items-center">
+              <img
+                class="w-[30px] h-[30px]"
+                src="../assets/images/Frame 1000005390 (3).png"
+                alt="location"
+              />
+              <div class="text-[14px]">
+                آدرس دفتر مرکزی: پونک - خیابان اشرفی اصفهانی - خیابان صبحدل- بن
+                بست شب بو
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col w-[329px] gap-3">
+            <div class="font-bold text-sm">با ما در ارتباط باش</div>
+            <div class="text-xs">
+              اگه میخوای اولین نفری باشی که از فیچرهای جدید و تخفیفات با خبر
+              بشی.
+            </div>
+            <div
+              class="w-full h-[48px] flex justify-between items-center gap-3 border border-[#A1A1A1] py-2 px-4 rounded-xl"
+            >
+              <input
+                class="flex-1 rounded-md border-none outline-none h-[30px] px-4 dark:border-[#6D7581] dark:text-[#6D7581] dark:bg-gray-950"
+                type="email"
+                placeholder="ایمیل"
+              />
+              <button
+                class="bg-[#2C7EF8] text-white font-black text-sm w-[45px] h-[30px] rounded-md"
+              >
+                ارسال
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="text-center text-[14px] text-[#666666] mt-6">
+          تمامی حقوق مادی و معنوی این سایت متعلق به کوئرا لیست می‌باشد.
+        </div>
+      </div>
     </footer>
-</body>
+    <script src="./main.js"></script>
+  </body>
 </html>

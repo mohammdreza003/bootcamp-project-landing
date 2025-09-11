@@ -1,73 +1,360 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl" class="">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Page</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          light: {
-            "primary": "#2C7EF8",
-            "primary-hover": "#075CD9",
-            "on-primary": "#FFFFFF",
-            "on-background": "#191C1E",
-            "about-us-bgcolor": "#EBF3FE",
-            "input-border": "#E6E6E6",
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              light: {
+                primary: "#2C7EF8",
+                "primary-hover": "#075CD9",
+                "on-primary": "#FFFFFF",
+                "on-background": "#191C1E",
+                "about-us-bgcolor": "#EBF3FE",
+                "input-border": "#E6E6E6",
+              },
+              dark: {
+                primary: "#3A86F8",
+                "primary-hover": "#6BA4FA",
+                background: "#040810",
+                "on-background": "#E6E9EF",
+                surface: "#E6E9EF",
+                "a-dark": "#CFCFCF",
+                "a-hover-dark": "#037FFF",
+                "text-color": "#ffffff",
+                "about-bg": "#122549",
+                "card-bg": "#0B192D",
+                "about-me-card": "#0E1E34",
+              },
+            },
+            boxShadow: {
+              app: "0px 0px 24px 0px rgba(0, 0, 0, 0.05)",
+              comment: "0px 4px 63px 0px rgba(0, 0, 0, 0.04)",
+            },
           },
-          dark: {
-            "primary": "#3A86F8",
-            "primary-hover": "#6BA4FA",
-            "background": "#040810",
-            "on-background": "#E6E9EF",
-            "surface": "#E6E9EF",
-            "a-dark": "#CFCFCF",
-            "a-hover-dark": "#037FFF",
-            "text-color": "#ffffff",
-            "about-bg": "#122549",
-            "card-bg": "#0B192D",
-            "about-me-card": "#0E1E34"
-          }
         },
-        boxShadow: {
-          "app": "0px 0px 24px 0px rgba(0, 0, 0, 0.05)",
-          "comment": "0px 4px 63px 0px rgba(0, 0, 0, 0.04)"
-        }
-      }
-    }
-  }
-  </script>
-</head>
-<body>
-  <header>
-    <!-- هدر اینجا تعریف میشه -->
-     <button>dark/light mood</button>
-     <div class="text-center  text-sky-400  dark:bg-gray-800 dark:text-white bg-light-primary-hover-light">hi quera bootcamp</div>
-  </header>
-  <!-- main -->
-  <main>
-    <!-- entering application section -->
+      };
+    </script>
+  </head>
+  <body class="dark:bg-gray-950">
+    <!--هدر موبایل -->
+    <header
+      id="mobile-header"
+      class="bg-white dark:bg-gray-950 dark:text-white top-0 left-0 right-0 flex items-center justify-center h-[49px] w-full py-3 px-4 lg:hidden"
+    >
+      <img
+        id="burgerBtn"
+        src="../assets/images/Frame 12160.png"
+        alt="hamburgur menu"
+        class="w-6 h-6"
+      />
+      <div class="font-semibold text-base mx-auto">کوئرا لیست</div>
+      <div class="w-6 h-6"></div>
+    </header>
 
+    <!-- هدر دسکتاپ -->
+    <header
+      id="desktop-header"
+      class="hidden bg-white top-0 left-0 right-0 h-[80px] w-full py-6 px-8 lg:flex lg:items-center lg:justify-between dark:bg-gray-950"
+    >
+      <div class="flex items-center gap-16 font-semibold text-[20px] text-base">
+        <div class="text-center dark:text-[#FFFFFF]">کوئرا لیست</div>
+        <a href="index.html " class="text-[#2C7EF8]">صفحه اصلی</a>
+        <a href="aboutUs.html" class="text-[#666666] dark:text-[#CFCFCF]"
+          >درباره ما</a
+        >
+        <a href="contactUs.html" class="text-[#666666] dark:text-[#CFCFCF]"
+          >ارتباط با ما</a
+        >
+      </div>
+      <div class="flex gap-4 items-center">
+        <button class="bg-[#2C7EF8] text-white rounded-md py-2 px-6">
+          ورود به اپلیکیشن
+        </button>
+        <img
+          id="dropdownBtn"
+          src="../assets/images/Frame 12159.png"
+          alt="dark/light mode"
+          class="border rounded-md border-[#E3E3E3] h-[40px] w-[40px] cursor-pointer dark:border-[#2F3132]"
+        />
+      </div>
+    </header>
 
-    <!-- Application feature  -->
+    <!-- منوی مود -->
+    <ul
+      id="dropdownMode"
+      class="hidden flex-col justify-center w-[240px] gap-4 px-3 border rounded-lg absolute left-[30px] z-30 top-[80px] bg-white shadow dark:bg-[#0B192D] dark:border-[#293242] dark:text-white"
+    >
+      <li
+        data-mode="light"
+        class="flex justify-between border-b border-[#EBEDEF] py-2 cursor-pointer dark:border-[#293242]"
+      >
+        <div class="flex gap-2">
+          <img src="../assets/images/light-outline.png" alt="light" />
+          <div>حالت روشن</div>
+        </div>
+        <img
+          src="../assets/images/tick-outline.png"
+          alt="tick"
+          class="hidden"
+        />
+      </li>
+      <li
+        data-mode="dark"
+        class="flex justify-between border-b border-[#EBEDEF] py-2 cursor-pointer dark:border-[#293242]"
+      >
+        <div class="flex gap-2" id="darkModeBtn">
+          <img src="../assets/images/dark-outline.png" alt="dark" />
+          <div>حالت تاریک</div>
+        </div>
+        <img
+          src="../assets/images/tick-outline.png"
+          alt="tick"
+          class="hidden"
+        />
+      </li>
+      <li class="flex justify-between py-2 cursor-pointer" data-mode="system">
+        <div class="flex gap-2">
+          <img src="../assets/images/light-dark.png" alt="light-dark" />
+          <div>پیروی از دستگاه</div>
+        </div>
+        <img
+          src="../assets/images/tick-outline.png"
+          alt="tick"
+          class="hidden"
+        />
+      </li>
+    </ul>
 
+    <!-- main -->
+    <main
+      class="lg:pt-[100px] relative pb-[200px] dark:text-white dark:bg-gradient-to-b dark:from-blue-950 dark:bg-gray-950"
+    >
+      <!-- بخش ورود -->
+      <section class="flex flex-col items-center text-center relative">
+        <h3 class="mt-[100px] text-[24px] lg:text-[46px] font-normal">
+          تمرکز رو وارد زندگیت کن
+        </h3>
+        <h2 class="font-black text-[28px] lg:text-6xl mt-2 pb-8">
+          به سمت اهدافت اوج بگیر
+        </h2>
+        <!-- متن توضیح -->
+        <p class="mt-6 max-w-[827px] text-sm lg:text-base leading-relaxed px-4">
+          زمان در یک روز برای ما محدود است، اما مهمترین کار این است که چگونه از
+          آن استفاده می‌کنیم. با اپلیکیشن کوئرا لیست، زمان خود را با هدف و
+          برنامه‌ریزی موثر سپری کنید.
+        </p>
+        <!-- دکمه‌ها -->
+        <div class="flex justify-center gap-4 mt-8">
+          <button
+            class="bg-[#2C7EF8] text-white rounded-lg py-2 px-6 lg:py-3 lg:px-10"
+          >
+            ورود به اپلیکیشن
+          </button>
+          <button
+            class="bg-[#EBF3FE] text-[#2C7EF8] rounded-lg py-2 px-6 lg:py-3 lg:px-10"
+          >
+            درباره ما
+          </button>
+        </div>
+        <!-- تصویر اصلی -->
+        <img
+          class="mt-12 w-[328px] lg:w-[1120px]"
+          src="../assets/images/image 39129.png"
+          alt="main app preview"
+        />
+        <!-- تزئینی‌ها -->
+        <img
+          class="absolute w-[24px] top-[80px] right-[10%] lg:w-[32px] lg:top-[100px] lg:left-[70%]"
+          src="../assets/images/Star 2 (Stroke).png"
+          alt="star1"
+        />
+        <img
+          class="absolute w-[24px] top-[120px] left-[10%] lg:w-[32px] lg:top-[232px] lg:left-[15%]"
+          src="../assets/images/Star 2 (Stroke).png"
+          alt="star2"
+        />
+        <img
+          class="absolute rotate-[-1deg] w-[150px] top-[180px] left-[30%] lg:w-[350px] lg:top-[240px] lg:left-[40%]"
+          src="../assets/images/Vector 74 (2).png"
+          alt="curvedLine"
+        />
+        <img
+          class="w-[200px] h-[200px] absolute top-[0px] left-[1%] lg:w-[400px] lg:h-[400px] lg:top-[5px] lg:left-[30px]"
+          src="../assets/images/Ellipse 128.png"
+          alt="circle1"
+        />
+        <img
+          class="w-[200px] h-[200px] absolute top-[80px] -right-[2%] lg:w-[400px] lg:h-[400px] lg:top-[200px] lg:right-[0px]"
+          src="../assets/images/Ellipse 128.png"
+          alt="circle2"
+        />
+      </section>
+      <!-- Application feature -->
+      <!-- download section -->
+      <!-- comments section -->
+    </main>
 
-    <!-- download section -->
+    <!-- footer -->
+    <footer class="bg-white w-full py-8 dark:text-white dark:bg-gray-950">
+      <!-- موبایل -->
+      <div
+        id="mobile-footer"
+        class="flex flex-col gap-3 items-center lg:hidden dark:bg-gray-950"
+      >
+        <div class="flex items-center justify-center w-full">
+          <div class="w-[120px] h-[1px] bg-[#AFAFAF]"></div>
+          <span class="text-base font-semibold mx-2">کوئرا لیست</span>
+          <div class="w-[120px] h-[1px] bg-[#AFAFAF]"></div>
+        </div>
 
-    <!-- comments section -->
-    
-  </main>
-  <!-- footer -->
-  <footer>
-    <!-- فوتر این قسمت قرار میگیره -->
-  </footer>
+        <div class="w-full px-4 flex flex-col gap-6 items-center">
+          <div class="text-center">
+            <div class="font-bold text-sm">با ما در ارتباط باش</div>
+            <p class="font-normal text-xs mt-1">
+              اگه میخوای اولین نفری باشی که از فیچرهای جدید و تخفیفات با خبر
+              بشی.
+            </p>
+          </div>
 
+          <div
+            class="w-full max-w-[328px] h-[55px] flex justify-between items-center gap-2 border border-[#A1A1A1] py-[10px] px-[16px] rounded-xl"
+          >
+            <input
+              class="flex-1 rounded-md border-none outline-none text-sm h-[30px] px-4"
+              type="email"
+              placeholder="ایمیل"
+            />
+            <button
+              class="bg-[#2C7EF8] text-white font-black text-sm w-[45px] h-[30px] rounded-md"
+            >
+              ارسال
+            </button>
+          </div>
 
+          <div class="flex w-full max-w-[328px] gap-4">
+            <div
+              class="flex-1 px-4 py-3 rounded-xl border border-[#e9e9eb] flex flex-col items-center justify-center text-xs text-center dark:bg-[#081021] dark:border-none"
+            >
+              <img
+                src="../assets/images/Frame 1000005390 (3).png"
+                alt="location"
+              />
+              <div class="text-xs">
+                آدرس دفتر مرکزی: پونک - خیابان اشرفی اصفهانی - خیابان صبحدل- بن
+                بست شب بو
+              </div>
+            </div>
+            <div class="flex flex-col flex-1 gap-4">
+              <div
+                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3 dark:bg-[#081021] dark:border-none"
+              >
+                <img
+                  class="w-[30px] h-[30px]"
+                  src="../assets/images/Frame 1000005390 (4).png"
+                  alt="phone"
+                />
+                <div class="text-xs">
+                  تلفن پشتیبانی<br />
+                  ۴۴۴۴۵۵۶۶ - ۰۲۱
+                </div>
+              </div>
+              <div
+                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3 dark:bg-[#081021] dark:border-none"
+              >
+                <img
+                  class="w-[30px] h-[30px]"
+                  src="../assets/images/Frame 1000005391 (1).png"
+                  alt="fax"
+                />
+                <div class="text-xs">
+                  فکس<br />
+                  ۴۴۴۴۵۵۶۶ - ۰۲۱
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <script src="./main.js"></script>
-</body>
+          <div class="text-xs text-[#666666] text-center mt-4">
+            تمامی حقوق مادی و معنوی این سایت متعلق به کوئرا لیست می‌باشد.
+          </div>
+        </div>
+      </div>
+
+      <!-- دسکتاپ -->
+      <div
+        id="desktop-footer"
+        class="hidden lg:flex lg:flex-col lg:gap-6 lg:items-center dark:text-white dark:bg-gray-950"
+      >
+        <div class="flex items-center justify-center w-[573px] h-[61px]">
+          <div class="w-[223px] h-[1px] bg-[#AFAFAF]"></div>
+          <span class="text-[20px] mx-2">کوئرا لیست</span>
+          <div class="w-[223px] h-[1px] bg-[#AFAFAF]"></div>
+        </div>
+        <div class="w-full flex justify-around items-start">
+          <div class="flex flex-col gap-4 w-[329px]">
+            <div class="flex gap-3 items-center">
+              <img
+                class="w-[30px] h-[30px]"
+                src="../assets/images/Frame 1000005391 (1).png"
+                alt="fax"
+              />
+              <div class="text-[14px]">فکس: ۴۴۴۴۵۵۶۶ - ۰۲۱</div>
+            </div>
+            <div class="flex gap-3 items-center">
+              <img
+                class="w-[30px] h-[30px]"
+                src="../assets/images/Frame 1000005390 (4).png"
+                alt="phone"
+              />
+              <div class="text-[14px]">تلفن پشتیبانی: ۴۴۴۴۵۵۶۶ - ۰۲۱</div>
+            </div>
+            <div class="flex gap-3 items-center">
+              <img
+                class="w-[30px] h-[30px]"
+                src="../assets/images/Frame 1000005390 (3).png"
+                alt="location"
+              />
+              <div class="text-[14px]">
+                آدرس دفتر مرکزی: پونک - خیابان اشرفی اصفهانی - خیابان صبحدل- بن
+                بست شب بو
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col w-[329px] gap-3">
+            <div class="font-bold text-sm">با ما در ارتباط باش</div>
+            <div class="text-xs">
+              اگه میخوای اولین نفری باشی که از فیچرهای جدید و تخفیفات با خبر
+              بشی.
+            </div>
+            <div
+              class="w-full h-[48px] flex justify-between gap-2 items-center border border-[#A1A1A1] py-2 px-4 rounded-xl"
+            >
+              <input
+                class="flex-1 rounded-md border-none outline-none h-[30px] px-4"
+                type="email"
+                placeholder="ایمیل"
+              />
+              <button
+                class="bg-[#2C7EF8] text-white font-black text-sm w-[45px] h-[30px] rounded-md"
+              >
+                ارسال
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="text-center text-[14px] text-[#666666] mt-6">
+          تمامی حقوق مادی و معنوی این سایت متعلق به کوئرا لیست می‌باشد.
+        </div>
+      </div>
+    </footer>
+
+    <script src="./main.js"></script>
+  </body>
 </html>
