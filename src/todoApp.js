@@ -6,8 +6,6 @@ document
 
 document.querySelector("#add-todo-btn").addEventListener("click", addTodo);
 
-
-
 // ---- option for task
 function moreOptionInput() {
   const option = document.querySelector("#option");
@@ -21,7 +19,7 @@ function inputNewTask() {
 
   // ---- hide image when input div appear .
   image.classList.toggle("hidden");
-  image.classList.toggle("flex")
+  image.classList.toggle("flex");
 
   // ---- check input container exist
 
@@ -34,7 +32,7 @@ function inputNewTask() {
   const wrapper = document.createElement("div");
   wrapper.innerHTML = `
     <article
-          class="border border-[#E9E9E9] py-4 flex  flex-col gap-4  bg-[#FFFFFF] shadow-add rounded-xl  md:w-[744px]"
+          class="border border-[#E9E9E9] py-4 flex  flex-col gap-4  bg-[#FFFFFF] shadow-add rounded-xl  md:w-5/6"
           id="input-container"
         >
           <div class="flex flex-col gap-6 ">
@@ -100,6 +98,7 @@ function inputNewTask() {
             </button>
             <button
               class="font-semibold text-xs w-[40%] text-[#FFFFFF] bg-[#007BFF] rounded-md px-1 py-4 opacity-60"
+              onclick="addTodo()"
             >
               اضافه کردن تسک
             </button>
@@ -121,48 +120,125 @@ function showTag() {
   }
 
   wrapper.innerHTML = `  <div
-              class="w-[213.91px] h-[43px] rounded-lg border p-[10px] flex gap-4 bg-[#FFFFFF] shadow-add mx-4 mb-6"
-              id="tags-div"
+        class="w-2/6 h-[43px] rounded-lg border p-[10px] flex justify-center items-center gap-4 bg-[#FFFFFF] shadow-add mx-4 mb-6"
+        id="tags-div"
+      >
+        <button
+          data-tag="پایین"
+          value="low"
+          class="px-2 py-1 gap-2 flex flex-row justify-center items-center bg-[#C3FFF1] rounded-[4px]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="cancel-button size-3 hidden"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+
+          <p class="font-bold text-xs text-[#11A483]">پایین</p>
+        </button>
+        <button
+          data-tag="متوسط"
+          value="medium"
+          class="px-4 border-r-2 border-l-2 border-[#EBEDEF]"
+        >
+          <div class="px-2 py-1 gap-2 flex flex-row justify-center items-center bg-[#FFEFD6] rounded-[4px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="cancel-button size-3 hidden"
             >
-              <button
-                data-tag="low"
-                value="low"
-                class="px-2 py-1 gap-2 bg-[#C3FFF1] rounded-[4px]"
-              >
-                <p class="font-bold text-xs text-[#11A483]">پایین</p>
-              </button>
-              <button
-                data-tag="medium"
-                value="medium"
-                class="px-4 border-r-2 border-l-2 border-[#EBEDEF]"
-              >
-                <div class="px-2 py-1 gap-2 bg-[#FFEFD6] rounded-[4px]">
-                  <p class="font-bold text-xs text-[#FFAF37]">متوسط</p>
-                </div>
-              </button>
-              <button
-                data-tag="high"
-                value="high"
-                class="px-2 py-1 gap-2 bg-[#FFE2DB] rounded-[4px]"
-              >
-                <p class="font-bold text-xs text-[#FF5F37]">بالا</p>
-              </button>
-            </div> `;
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+            <p class="font-bold text-xs text-[#FFAF37]">متوسط</p>
+          </div>
+        </button>
+        <button
+          data-tag="بالا"
+          value="high"
+          class="px-2 py-1 gap-2 flex flex-row justify-center items-center bg-[#FFE2DB] rounded-[4px]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="cancel-button size-3 hidden"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+          <p class="font-bold text-xs text-[#FF5F37]">بالا</p>
+        </button>
+      </div> `;
   const tagsDiv = wrapper.firstElementChild;
 
   tagBtn.insertAdjacentElement("afterend", tagsDiv);
-  
+  setupPriorityButtons();
 }
-// ---- get priority
+// ---- setup priority and  get priority
 
-function getPriority(){
+
+function setupPriorityButtons() {
   const buttons = document.querySelectorAll("#tags-div button");
-  buttons.forEach(button =>{
-    button.addEventListener("click" , (event) =>{
-      const tag = event.currentTarget.dataset.tag;
-      console.log(tag)
-    })
-  })
+  const container = document.querySelector("#tags-div");
+  
+
+  buttons.forEach((button) => {
+    const svg = button.querySelector("svg");
+
+    button.addEventListener("click", (event) => {
+      container.classList.toggle("border-none")
+      if(event.target)
+      if (event.target === svg || svg.contains(event.target)) {
+        svg.classList.add("hidden");
+        buttons.forEach((b) => {
+          if (b !== button) {
+            
+            b.classList.toggle("hidden");
+          }
+        });
+        button.classList.remove("active");
+        return;
+      }
+
+      buttons.forEach((b) => {
+        if (b !== button) {
+          b.classList.add("hidden");
+          b.classList.remove("active");
+          b.querySelector("svg").classList.add("hidden");
+        }
+      });
+
+      button.classList.add("active");
+      svg.classList.remove("hidden");
+    });
+  });
+}
+
+
+function getPriority() {
+  const activeButton = document.querySelector("#tags-div button.active");
+  return activeButton ? activeButton.dataset.tag : null;
 }
 
 // ---- get data for todo
@@ -174,10 +250,9 @@ function addTodo() {
     id: crypto.randomUUID(),
     title: title.value,
     description: descriptionTask.value,
+    priority: getPriority(),
   };
 
   todos.push(todo);
   console.log(todos);
 }
-
-getPriority()
