@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./style.css" />
     <script>
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             boxShadow: {
@@ -531,7 +532,8 @@
         </div>
       </div>
     </aside>
-    <main class="w-[90%] mx-auto flex flex-col gap-6">
+
+    <main class="w-[90%] mt-10 mx-auto flex flex-col gap-6">
       <!-- main -->
       <section
         class="flex flex-col gap-4 mx-auto md:w-[60%]"
@@ -596,12 +598,13 @@
           </div>
         </article>
         <!-- input tasks -->
-        <!-- <article
+        <article
           class="border border-[#E9E9E9] py-4 hidden flex-col gap-4 bg-[#FFFFFF] shadow-add rounded-xl md:w-[744px]"
           id="input-container"
         >
-          <div class="flex flex-col gap-6 ">
-            - <div class="flex flex-col gap-2 px-4 pb-4">
+          <div class="flex flex-col gap-6">
+            -
+            <div class="flex flex-col gap-2 px-4 pb-4">
               <input
                 type="text"
                 placeholder="نام تسک"
@@ -614,8 +617,8 @@
                 class="text-xs font-normal text-[#AFAEB2] py-2 focus:outline-none"
                 id="input-discription"
               />
-            </div> 
-           <button
+            </div>
+            <button
               class="flex border border-[#E9E9E9] rounded-[4px] px-2 py-1 mx-4 my-4 md:my-0 gap-1 w-1/6 md:w-1/12"
               id="tag-btn"
               onclick="showTag()"
@@ -641,8 +644,8 @@
               </svg>
 
               <p class="text-xs font-semibold text-[#AFAEB2]">تگ‌ها</p>
-            </button> 
-              <div
+            </button>
+            <div
               class="w-[213.91px] h-[43px] rounded-lg border p-[10px] flex gap-4 bg-[#FFFFFF] shadow-add mx-4 mb-6"
               id="tags-div"
             >
@@ -669,7 +672,7 @@
               >
                 <p class="font-bold text-xs text-[#FF5F37]">بالا</p>
               </button>
-            </div>  
+            </div>
           </div>
           <div class="flex justify-end gap-3 pl-[15px]">
             <button class="p-2 rounded-md bg-[#F5F5F5]">
@@ -689,12 +692,13 @@
               </svg>
             </button>
             <button
+              onclick="addTodo()"
               class="font-semibold text-xs w-[40%] text-[#FFFFFF] bg-[#007BFF] rounded-md px-1 py-4 opacity-60"
             >
               اضافه کردن تسک
             </button>
-          </div> 
-        </article> -->
+          </div>
+        </article>
       </section>
 
       <!-- uncompleted tasks -->
@@ -980,7 +984,7 @@
                 </p>
               </div>
               <div class="flex flex-col justify-evenly items-end">
-                <button onclick="moreOptionInput()">
+                <button onclick="moreOptionInput()" class="more-option-btn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -997,10 +1001,10 @@
                   </svg>
                 </button>
                 <div
-                  class="w-fit rounded-lg border hidden flex-row-reverse divide-x divide-[#EBEDEF] p-2 mt-2 shadow-add bg-white border-[#EBEDEF]"
+                  class="option-menu w-fit rounded-lg border hidden flex-row-reverse divide-x divide-[#EBEDEF] p-2 mt-2 shadow-add bg-white border-[#EBEDEF]"
                   id="option"
                 >
-                  <button>
+                  <button class="edit-btn" data-task-id="${task.id}">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -1016,7 +1020,7 @@
                       />
                     </svg>
                   </button>
-                  <button>
+                  <button data-action="delete" class="delete-btn">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
