@@ -531,28 +531,28 @@
         </div>
       </div>
     </aside>
-    <main class="w-[90%] mx-auto flex flex-col gap-6">
+    <main class="w-[90%] pt-10 mx-auto flex flex-col gap-6">
       <!-- main -->
       <section
-        class="flex flex-col gap-4 mx-auto md:w-[60%]"
+        class="flex flex-col gap-4 mx-auto md:w-[40%]"
         id="complited_task"
       >
         <article class="flex flex-col gap-1">
           <h2
-            class="font-extrabold text-[16px] md:text-xl text-[#242424] text-right"
+            class="font-extrabold text-[16px] md:text-xl text-[#242424] dark:text-[#FFFFFF] text-right"
           >
             تسک‌های امروز
           </h2>
-          <p class="font-normal text-xs md:text-sm text-right text-[#696969]">
+          <p class="font-normal text-xs md:text-sm text-right text-[#696969] dark:text-[#848890]">
             تسکی برای امروز نداری!
           </p>
         </article>
 
         <!-- add task -->
 
-        <article class="md:w-5/6">
+        <article class="w-[80%] md:w-5/6">
           <div
-            class="flex flex-row gap-4 rounded-xl border border-dashed border-[#CCCCCC] py-4 pr-4 bg-[#FFFFFF]"
+            class="flex flex-row gap-4 rounded-xl border border-dashed border-[#CCCCCC] dark:border-[#203E62] py-4 pr-4 bg-[#FFFFFF] dark:bg-[#091120]"
           >
             <button class="flex gap-2 items-center" id="add-new-todo-btn">
               <svg
@@ -561,7 +561,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-6 text-sm text-[#007BFF]"
+                class="size-6 text-sm text-[#007BFF] dark:text-[#57A8FF]"
               >
                 <path
                   stroke-linecap="round"
@@ -569,7 +569,7 @@
                   d="M12 4.5v15m7.5-7.5h-15"
                 />
               </svg>
-              <p class="font-semibold text-sm text-right text-[#007BFF]">
+              <p class="font-semibold text-sm text-right text-[#007BFF] dark:text-[#57A8FF]">
                 افزودن وظیفه جدید
               </p>
             </button>
@@ -698,7 +698,7 @@
       </section>
 
       <!-- uncompleted tasks -->
-      <section class="mr-4 flex flex-col gap-3 md:mx-auto md:w-[60%]">
+      <section class="mr-4 flex flex-col gap-3 md:mx-auto md:w-[40%]">
         <article>
           <ul class="flex flex-col gap-3" id="uncompleted-tasks">
             <!-- <li
