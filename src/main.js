@@ -1,14 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const dropdownBtn = document.getElementById("dropdownBtn");
   const dropdownMenu = document.getElementById("dropdownMode");
+
   const tickedItems = document.querySelectorAll("#dropdownMode li");
   const burgerImg = document.querySelector("#mobile-header img");
 
   // باز و بسته کردن منوی مود
+
   dropdownBtn.addEventListener("click", () => {
     dropdownMenu.classList.toggle("hidden");
   });
-
   tickedItems.forEach((li) => {
     li.addEventListener("click", () => {
       // مخفی کردن همه تیک‌ها
@@ -42,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // بستن منو در حالت resize
+
   window.addEventListener("resize", () => {
     if (window.innerWidth < 1024) {
       dropdownMenu.classList.add("hidden");
