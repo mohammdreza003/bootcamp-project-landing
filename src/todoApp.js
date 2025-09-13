@@ -464,7 +464,7 @@ function renderTodo() {
 
   todos.forEach((task) => {
     const todoHtml = `
-      <li class="w-[328px] md:w-[70%] rounded-xl border flex justify-between px-4 py-3 md:py-6 md:px-5 bg-[#FFFFFF] border-[#E9E9E9] border-r-4"
+      <li class="w-[328px] md:w-[70%] rounded-xl border flex justify-between px-4 py-3 md:py-6 md:px-5 bg-[#FFFFFF] dark:border-none dark:bg-[#091120] border-[#E9E9E9] border-r-4"
           style="border-right-color: ${task.priority?.color || "#E9E9E9"}">
         <div class="flex md:gap-4 flex-col">
           <div class="flex flex-col gap-2 md:flex-row">
@@ -472,7 +472,7 @@ function renderTodo() {
               <input type="checkbox" ${task.isCompleted ? "checked" : ""}
                 onchange="toggleComplete('${task.id}', this.checked)"
                 class="rounded-[5px] border-[#CCCCCC] accent-[#007BFF]" />
-              <h3 class="font-bold md:text-[16px] text-[#242424] ${
+              <h3 class="font-bold md:text-[16px] text-[#242424] dark:text-[#FFFFFF] ${
                 task.isCompleted ? "line-through opacity-50" : ""
               }">
                 ${task.title}
@@ -492,7 +492,7 @@ function renderTodo() {
                 : ""
             }
           </div>
-          <p class="font-normal md:text-sm text-[#727272] ${
+          <p class="font-normal md:text-sm text-[#727272] dark:text-[#848890] ${
             task.isCompleted ? "opacity-50" : ""
           }">
             ${task.description}
@@ -502,7 +502,7 @@ function renderTodo() {
         <div class="flex flex-col justify-evenly items-end">
           <button class="more-option-btn" data-task-id="${task.id}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
-                 stroke-width="1.5" stroke="currentColor" class="size-5">
+                 stroke-width="1.5" stroke="currentColor" class="size-5 dark:text-[#FFFFFF]">
               <path stroke-linecap="round" stroke-linejoin="round" 
                     d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
             </svg>
