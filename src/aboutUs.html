@@ -5,11 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About us</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              light: {
+                primary: "#2C7EF8",
+                "primary-hover": "#075CD9",
+                "on-primary": "#FFFFFF",
+                "on-background": "#191C1E",
+                "about-us-bgcolor": "#EBF3FE",
+                "input-border": "#E6E6E6",
+              },
+              dark: {
+                primary: "#3A86F8",
+                "primary-hover": "#6BA4FA",
+                background: "#040810",
+                "on-background": "#E6E9EF",
+                surface: "#E6E9EF",
+                "a-dark": "#CFCFCF",
+                "a-hover-dark": "#037FFF",
+                "text-color": "#ffffff",
+                "about-bg": "#122549",
+                "card-bg": "#0B192D",
+                "about-me-card": "#0E1E34",
+              },
+            },
+            boxShadow: {
+              app: "0px 0px 24px 0px rgba(0, 0, 0, 0.05)",
+              comment: "0px 4px 63px 0px rgba(0, 0, 0, 0.04)",
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body>
+  <body class="bg-[#F5F6F8] lg:bg-white dark:bg-gray-950">
     <header
       id="mobile-header"
-      class="fixed bg-white top-0 left-0 right-0 flex items-center justify-between gap-2 h-[49px] w-full py-3 px-4 lg:hidden dark:bg-gray-800 dark:text-white"
+      class="fixed bg-white top-0 left-0 right-0 flex items-center justify-between gap-2 h-[49px] w-full py-3 px-4 lg:hidden dark:bg-gray-950 dark:text-white"
     >
       <img
         id="burgerBtn"
@@ -25,16 +61,22 @@
 
     <header
       id="desktop-header"
-      class="fixed bg-white top-0 left-0 right-0 hidden lg:flex items-center justify-between h-[80px] w-full py-6 px-4 mx-auto"
+      class="fixed bg-white dark:bg-gray-950 top-0 left-0 right-0 hidden lg:flex items-center justify-between h-[80px] w-full py-6 px-4 mx-auto"
+
     >
       <div
         class="flex items-center justify-around gap-16 w-128 h-8 font-semibold text-base text-[20px]"
       >
-        <div class="text-center leading-[100%]">کوئرا لیست</div>
-        <a href="index.html" class="text-[#666666]">صفحه اصلی</a>
+        <div class="text-center leading-[100%] dark:text-[#ffff]">
+          کوئرا لیست
+        </div>
+        <a href="index.html" class="text-[#666666] dark:text-[#CFCFCF]"
+          >صفحه اصلی</a
+        >
         <a href="aboutUs.html" class="text-[#2C7EF8]">درباره ما</a>
-        <a href="contactUs.html" class="text-[#666666]">ارتباط با ما</a>
-      </div>
+        <a href="contactUs.html" class="text-[#666666] dark:text-[#CFCFCF]"
+          >ارتباط با ما</a
+        >
 
       <div class="flex gap-4 items-center justify-center relative">
         <button class="w-42 h-10 bg-[#2C7EF8] text-white rounded-md py-2 px-6">
@@ -50,10 +92,11 @@
     </header>
     <ul
       id="dropdownMode"
-      class="hidden flex-col justify-center w-[240px] h-[184px] gap-4 p-6 border rounded-lg absolute left-[104px] top-[72px] bg-[#FFFFFF]"
+      class="hidden flex-col justify-center shadow w-[240px] gap-4 px-3 border rounded-lg absolute left-[30px] top-[80px] bg-[#FFFFFF] dark:bg-[#0B192D] dark:border-[#293242] dark:text-white z-30"
     >
       <li
-        class="flex justify-between border-b border-[#EBEDEF] pb-3 cursor-pointer"
+        data-mode="light"
+        class="flex justify-between border-b border-[#EBEDEF] py-2 cursor-pointer dark:border-[#293242]"
       >
         <div class="flex gap-2">
           <img src="../assets/images/light-outline.png" alt="light" />
@@ -66,9 +109,11 @@
         />
       </li>
       <li
-        class="flex justify-between border-b border-[#EBEDEF] pb-3 cursor-pointer"
+
+        data-mode="dark"
+        class="flex justify-between border-b border-[#EBEDEF] py-2 cursor-pointer dark:border-[#293242]"
       >
-        <div class="flex gap-2">
+        <div class="flex gap-2" id="darkModeBtn">
           <img src="../assets/images/dark-outline.png" alt="dark" />
           <div>حالت تاریک</div>
         </div>
@@ -78,7 +123,8 @@
           class="hidden"
         />
       </li>
-      <li class="flex justify-between cursor-pointer">
+      <li class="flex justify-between cursor-pointer py-2" data-mode="system">
+
         <div class="flex gap-2">
           <img src="../assets/images/light-dark.png" alt="light-dark" />
           <div>پیروی از دستگاه</div>
@@ -91,14 +137,147 @@
       </li>
     </ul>
 
-    <main class="mt-8">
+    <main
+      id="mobileMain"
+      class="mt-8 dark:bg-gray-950 dark:text-white flex flex-col justify-center items-center gap-[24px] lg:hidden"
+    >
       <!-- محتوای اصلی صفحه اینجاست -->
+      <img
+        src="../assets/images/Frame 427321285 (1).png"
+        class="w-[328px] rounded-[24px] mt-10 mx-[16px]"
+        alt="me"
+      />
+      <div
+        class="mx-[16px] flex flex-col justify-center items-center gap-[24px]"
+      >
+        <div class="flex flex-col gap-[8px] justify-center items-center">
+          <div class="font-bold text-[24px]">درباره من</div>
+          <div
+            class="text-[#575757] font-extrabold text-[28px] dark:text-white"
+          >
+            محمد محمدی
+          </div>
+        </div>
+        <div
+          class="w-[328px] p-[16px] font-normal text-[12px] leading-[30px] rounded-[16px] border border-[#F5F6F8] bg-[#FFFFFF] dark:bg-[#0B192D] dark:text-white dark:border-none"
+        >
+          کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از استورهای معتبر
+          اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل علاوه بر دانلود
+          نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن استفاده
+          نمایند. کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از استورهای
+          معتبر اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل علاوه بر
+          دانلود نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن استفاده
+          نمایند. کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از استورهای
+          معتبر اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل علاوه بر
+          دانلود نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن استفاده
+          نمایند.
+        </div>
+      </div>
+      <div class="grid grid-rows-2 grid-cols-2 gap-3">
+        <div
+          class="bg-[#FFFFFF] dark:bg-[#0E1E34] dark:text-white flex flex-col gap-[8px] justify-start py-[16px] px-[12px] items-start rounded-[16px] w-[156px] h-[90px]"
+        >
+          <div class="font-bold text-[18px]">1379</div>
+          <div class="text-[12px]">سال تولد</div>
+        </div>
+        <div
+          class="bg-[#FFFFFF] dark:bg-[#0E1E34] dark:text-white flex flex-col gap-[8px] justify-start py-[16px] px-[12px] items-start rounded-[16px] w-[156px] h-[90px]"
+        >
+          <div class="font-bold text-[18px]">تهران</div>
+          <div class="text-[12px] font-normal">محل زندگی</div>
+        </div>
+        <div
+          class="bg-[#FFFFFF] dark:bg-[#0E1E34] dark:text-white flex flex-col gap-[8px] justify-start py-[16px] px-[12px] items-start rounded-[16px] w-[156px] h-[90px]"
+        >
+          <div class="font-bold text-[18px]">3.5</div>
+          <div class="text-[12px] font-normal">سال تجربه کار</div>
+        </div>
+        <div
+          class="bg-[#FFFFFF] dark:bg-[#0E1E34] dark:text-white flex flex-col gap-[8px] justify-start py-[16px] px-[12px] items-start rounded-[16px] w-[156px] h-[90px]"
+        >
+          <div class="font-bold text-[18px]">+10</div>
+          <div class="text-[12px] font-normal">مشارکت در پروژه‌</div>
+        </div>
+      </div>
     </main>
-    <footer class="bg-white dark:bg-gray-800 w-full py-8">
+
+    <main
+      id="desktopMain"
+      class="hidden mt-[150px] mx-auto bg-white lg:w-[1120px] dark:bg-gray-950 dark:text-white lg:flex lg:justify-center lg:items-center lg:gap-[24px]"
+    >
+      <div
+        class="flex flex-col justify-center items-start gap-[60px] h-[686px] p-[20px]"
+      >
+        <div class="flex flex-col justify-start items-start gap-[8px]">
+          <div class="font-bold text-[40px]">درباره من</div>
+          <div
+            class="text-[#575757] font-extrabold text-[32px] dark:text-white"
+          >
+            محمد محمدی
+          </div>
+        </div>
+        <div
+          class="w-[468px] py-[16px] font-normal text-[20px] leading-[40px] rounded-[16px] bg-[#F5F6F8] dark:bg-[#0B192D] dark:text-white p-4"
+        >
+          کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از استورهای معتبر
+          اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل علاوه بر دانلود
+          نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن استفاده
+          نمایند. کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از استورهای
+          معتبر اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل علاوه بر
+          دانلود نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن استفاده
+          نمایند. کاربران اندروید می‌توانند اپلیکیشن کوئرالیست را از استورهای
+          معتبر اندروید دانلود نمایند. همچنین کاربران سیستم عامل اپل علاوه بر
+          دانلود نرم‌افزار از اپل‌استور می‌توانند از نسخه مبتنی بر وب آن استفاده
+          نمایند.
+        </div>
+      </div>
+      <div
+        class="flex flex-col gap-[24px] justify-center items-center h-[686px]"
+      >
+        <img
+          src="../assets/images/Frame 427321285 (2).png"
+          class="w-[548px] h-[350px] rounded-[24px] mt-10 mx-[16px]"
+          alt="me"
+        />
+        <div
+          class="w-[548px] p-[20px] rounded-[24px] grid grid-rows-2 grid-cols-2 gap-3 mx-auto bg-[#F5F6F8] dark:bg-[#0B192D]"
+        >
+          <div
+            class="bg-white flex flex-col gap-[8px] justify-center py-[16px] px-[12px] items-start p-4 rounded-[16px] w-[230px] h-[112px] dark:bg-gray-950"
+          >
+            <div class="font-bold text-[18px]">1379</div>
+            <div class="text-[12px]">سال تولد</div>
+          </div>
+          <div
+            class="bg-white flex flex-col gap-[8px] justify-center py-[16px] px-[12px] items-start p-4 rounded-[16px] w-[230px] h-[112px] dark:bg-gray-950"
+          >
+            <div class="font-bold text-[18px]">تهران</div>
+            <div class="text-[12px] font-normal">محل زندگی</div>
+          </div>
+          <div
+            class="bg-white flex flex-col gap-[8px] justify-center py-[16px] px-[12px] items-start p-4 rounded-[16px] w-[230px] h-[112px] dark:bg-gray-950"
+          >
+            <div class="font-bold text-[18px]">3.5</div>
+            <div class="text-[12px] font-normal">سال تجربه کار</div>
+          </div>
+          <div
+            class="bg-white flex flex-col gap-[8px] justify-center py-[16px] px-[12px] items-start p-4 rounded-[16px] w-[230px] h-[112px] dark:bg-gray-950"
+          >
+            <div class="font-bold text-[18px]">+10</div>
+            <div class="text-[12px] font-normal">مشارکت در پروژه‌</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="bg-[#F5F6F8] lg:bg-white w-full py-8 dark:bg-gray-950 dark:text-white"
+    >
       <!-- موبایل -->
       <div
         id="mobile-footer"
-        class="flex flex-col gap-3 items-center lg:hidden"
+        class="flex flex-col gap-3 items-center lg:hidden dark:bg-gray-950"
+
       >
         <div class="flex items-center justify-center w-full">
           <div class="w-[120px] h-[1px] bg-[#AFAFAF]"></div>
@@ -116,15 +295,16 @@
           </div>
 
           <div
-            class="w-full max-w-[328px] h-[55px] flex justify-between items-center border border-[#A1A1A1] py-[10px] px-[16px] rounded-xl"
+
+            class="w-full max-w-[328px] h-[55px] flex justify-between items-center gap-3 border border-[#A1A1A1] py-[10px] px-[16px] rounded-xl"
           >
             <input
-              class="flex-1 rounded-md border-none outline-none text-sm"
+              class="flex-1 rounded-md border-none outline-none text-sm h-[30px] px-4 bg-[#F5F6F8] dark:bg-gray-950 lg:bg-white"
               type="email"
               placeholder="ایمیل"
             />
             <button
-              class="bg-[#2C7EF8] text-white font-black text-sm w-[65px] h-[36px] rounded-md"
+              class="bg-[#2C7EF8] text-white font-black text-sm w-[45px] h-[30px] rounded-md"
             >
               ارسال
             </button>
@@ -132,18 +312,21 @@
 
           <div class="flex w-full max-w-[328px] gap-4">
             <div
-              class="flex-1 px-4 py-3 rounded-xl border border-[#e9e9eb] flex flex-col items-center justify-center text-xs text-center"
+              class="flex-1 px-4 py-3 rounded-xl border border-[#e9e9eb] flex flex-col items-center justify-center text-xs text-center dark:bg-[#081021] dark:border-none"
+
             >
               <img
                 src="../assets/images/Frame 1000005390 (3).png"
                 alt="location"
               />
-              آدرس دفتر مرکزی: پونک - خیابان اشرفی اصفهانی - خیابان صبحدل- بن
-              بست شب بو
+              <div class="text-xs">
+                آدرس دفتر مرکزی: پونک - خیابان اشرفی اصفهانی - خیابان صبحدل- بن
+                بست شب بو
+              </div>
             </div>
             <div class="flex flex-col flex-1 gap-4">
               <div
-                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3"
+                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3 dark:bg-[#081021] dark:border-none"
               >
                 <img
                   class="w-[30px] h-[30px]"
@@ -156,7 +339,8 @@
                 </div>
               </div>
               <div
-                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3"
+                class="flex justify-center items-center gap-2 rounded-xl border border-[#e9e9eb] p-3 dark:bg-[#081021] dark:border-none"
+
               >
                 <img
                   class="w-[30px] h-[30px]"
@@ -180,7 +364,8 @@
       <!-- دسکتاپ -->
       <div
         id="desktop-footer"
-        class="hidden lg:flex lg:flex-col lg:gap-6 lg:items-center"
+        class="hidden lg:flex lg:flex-col lg:gap-6 lg:items-center dark:bg-gray-950 dark:text-white"
+
       >
         <div class="flex items-center justify-center w-[573px] h-[61px]">
           <div class="w-[223px] h-[1px] bg-[#AFAFAF]"></div>
@@ -224,15 +409,17 @@
               بشی.
             </div>
             <div
-              class="w-full h-[48px] flex justify-between items-center border border-[#A1A1A1] py-2 px-4 rounded-xl"
+              class="w-full h-[48px] flex justify-between items-center gap-3 border border-[#A1A1A1] py-2 px-4 rounded-xl"
             >
               <input
-                class="flex-1 rounded-md border-none outline-none"
+                class="flex-1 rounded-md border-none outline-none h-[30px] px-4 dark:bg-gray-950"
+
                 type="email"
                 placeholder="ایمیل"
               />
               <button
-                class="bg-[#2C7EF8] text-white font-black text-sm w-[65px] h-[36px] rounded-md"
+                class="bg-[#2C7EF8] text-white font-black text-sm w-[45px] h-[30px] rounded-md"
+
               >
                 ارسال
               </button>
