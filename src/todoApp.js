@@ -186,7 +186,7 @@ function inputNewTask() {
 
   wrapper.innerHTML = `
     <article
-          class="border border-[#E9E9E9] py-4 flex  flex-col gap-4  bg-[#FFFFFF] shadow-add rounded-xl w-full  "
+          class="border border-[#E9E9E9] dark:border-[#3D3D3D] py-4 flex  flex-col gap-4  bg-[#FFFFFF] dark:bg-[#060C18]  shadow-add rounded-xl w-full  "
           id="input-container"
         >
           <div class="flex flex-col gap-6 ">
@@ -194,18 +194,18 @@ function inputNewTask() {
               <input
                 type="text"
                 placeholder="نام تسک"
-                class="border-none font-semibold text-sm text-[#7D7D7F]"
+                class="border-none font-semibold text-sm text-[#7D7D7F] dark:text-[#FFFFFF]  dark:bg-[#060C18] "
                 id="input-title"
               />
               <input
                 type="text"
                 placeholder="توضیحات"
-                class="text-xs font-normal text-[#AFAEB2]"
+                class="text-xs font-normal text-[#AFAEB2] dark:text-[#83878F] dark:bg-[#060C18]"
                 id="input-discription"
               />
             </div>
             <button
-              class="flex border border-[#E9E9E9] rounded-[4px] px-2 py-1 mx-4 my-4 md:my-0 gap-1 w-1/6 md:w-1/12"
+              class="flex border border-[#E9E9E9] dark:border-[#83878F] rounded-[4px] px-2 py-1 mx-4 my-4 md:my-0 gap-1 w-1/6 md:w-1/12"
               id="tag-btn"
               onclick="showTag()"
             >
@@ -229,19 +229,19 @@ function inputNewTask() {
                 />
               </svg>
 
-              <p class="text-xs font-semibold text-[#AFAEB2]">تگ‌ها</p>
+              <p class="text-xs font-semibold text-[#AFAEB2] ">تگ‌ها</p>
             </button>
           
           </div>
           <div class="flex justify-end mt-1 gap-3 pl-[15px]">
-            <button class="p-2 rounded-md bg-[#F5F5F5]" id="cancel-task" onclick="cancelTask()">
+            <button class="p-2 rounded-md bg-[#F5F5F5] dark:bg-[#0C1B31]" id="cancel-task" onclick="cancelTask()">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-6"
+                class="size-6 dark:text-[#F2F2F2]"
               >
                 <path
                   stroke-linecap="round"
@@ -251,7 +251,7 @@ function inputNewTask() {
               </svg>
             </button>
             <button
-              class="font-semibold text-xs w-[40%] text-[#FFFFFF] bg-[#007BFF] rounded-md px-1 py-4 opacity-60"
+              class="font-semibold text-xs w-[40%] text-[#FFFFFF] dark:text-[#FFFFFF] bg-[#007BFF] dark:bg-[#002247] rounded-md px-1 py-4 opacity-60"
               onclick="addTodo()"
             >
               اضافه کردن تسک
@@ -276,14 +276,14 @@ function showTag() {
   }
 
   wrapper.innerHTML = `  <div
-        class="w-[80%] md:w-2/5 h-[43px] rounded-lg border p-[10px] flex justify-center items-center gap-4 bg-[#FFFFFF] shadow-add mx-4 mb-6"
+        class="w-[60%] md:w-[25%] h-[43px] rounded-lg border dark:border-[#293242]  p-4 flex justify-center items-center gap-4 bg-[#FFFFFF] dark:bg-[#0B192D] shadow-add mx-4 mb-6"
         id="tags-div"
       >
         <button
           data-tag="پایین"
           data-color="#11A483"
           data-bg="#C3FFF1"
-          class="px-2 py-1 gap-2 flex flex-row justify-center items-center bg-[#C3FFF1] rounded-[4px]"
+          class="px-2 py-1 gap-2 flex flex-row justify-center items-center bg-[#C3FFF1] dark:bg-[#233332] rounded-[4px]"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -300,15 +300,15 @@ function showTag() {
             />
           </svg>
 
-          <p class="font-bold text-xs text-[#11A483]">پایین</p>
+          <p class="font-bold text-xs text-[#11A483] dark:text-[#02E1A2]">پایین</p>
         </button>
         <button
           data-tag="متوسط"
           data-color="#FFAF37"
           data-bg="#FFEFD6"
-          class="px-4 border-r-2 border-l-2 border-[#EBEDEF]"
+          class="px-4 border-r-2 dark:border-r-[#293242] border-l-2 dark:border-l-[#293242]  border-[#EBEDEF]"
         >
-          <div class="px-2 py-1 gap-2 flex flex-row justify-center items-center bg-[#FFEFD6] rounded-[4px]">
+          <div class="px-2 py-1 gap-2 flex flex-row justify-center items-center bg-[#FFEFD6] dark:bg-[#302F2D] rounded-[4px]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -323,14 +323,14 @@ function showTag() {
                 d="M6 18 18 6M6 6l12 12"
               />
             </svg>
-            <p class="font-bold text-xs text-[#FFAF37]">متوسط</p>
+            <p class="font-bold text-xs text-[#FFAF37] dark:text-[#FFAF37]">متوسط</p>
           </div>
         </button>
         <button
           data-tag="بالا"
           data-color="#FF5F37"
           data-bg="#FFE2DB"
-          class="px-2 py-1 gap-2 flex flex-row justify-center items-center bg-[#FFE2DB] rounded-[4px]"
+          class="px-2 py-1 gap-2 flex flex-row justify-center items-center bg-[#FFE2DB] dark:bg-[#3D2327] rounded-[4px]"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -346,7 +346,7 @@ function showTag() {
               d="M6 18 18 6M6 6l12 12"
             />
           </svg>
-          <p class="font-bold text-xs text-[#FF5F37]">بالا</p>
+          <p class="font-bold text-xs text-[#FF5F37] dark:text-[#FF5F37]">بالا</p>
         </button>
       </div> `;
   const tagsDiv = wrapper.firstElementChild;
@@ -451,23 +451,23 @@ function renderTodo() {
     console.log("t");
     const todoHtml = `
       <li
-        class="w-[328px] md:w-[70%] rounded-xl border flex justify-between px-4 py-3 md:py-6 md:px-5 bg-[#FFFFFF] border-[#E9E9E9] border-r-[${
+        class="w-[328px] md:w-full rounded-xl border flex justify-between px-4 py-3 md:py-6 md:px-5 bg-[#FFFFFF] dark:border-none dark:bg-[#091120] border-[#E9E9E9] border-r-[${
           task.priority?.color
-        }] border-r-4"
+        }] border-r-4 mx-auto"
       >
         <div class="flex md:gap-4 flex-col">
-          <div class="flex flex-col md:flex-row">
+          <div class="flex flex-col gap-2 md:flex-row">
             <div class="flex flex-row gap-3 w-full">
               <input type="checkbox" ${task.isCompleted ? "checked" : ""}
               onchange="toggleComplete('${task.id}', this.checked)"
               class="rounded-[5px] border-[#CCCCCC] accent-[#007BFF]" />
 
-              <h3 class="font-bold md:text-[16px] text-[#242424]">
+              <h3 class="font-bold md:text-[16px] text-[#242424] dark:text-[#FFFFFF]">
                 ${task.title}
               </h3>
             </div>
             <div
-              class="mr-3 w-1/3 md:w-1/2 rounded-[4px] bg-[${
+              class="mr-3 w-[60%] md:w-1/2 rounded-[4px] bg-[${
                 task.priority?.bg
               }] px-2 py-1"
             >
@@ -481,7 +481,7 @@ function renderTodo() {
             </div>
           </div>
 
-          <p class="font-normal md:text-sm text-[#727272]">
+          <p class="font-normal md:text-sm text-[#727272] dark:text-[#848890]">
             ${task.description}
           </p>
         </div>
@@ -494,7 +494,7 @@ function renderTodo() {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="size-5"
+              class="size-5 dark:text-[#FFFFFF]"
             >
               <path
                 stroke-linecap="round"
