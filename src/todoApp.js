@@ -150,13 +150,12 @@ ddarkBtn.addEventListener("click", () => {
   document.documentElement.classList.add("dark");
 });
 
-const todos = [];
+let todos = [];
 
-document
-  .querySelector("#add-new-todo-btn")
-  .addEventListener("click", inputNewTask);
+let showNewTaskInput = document.querySelector("#add-new-todo-btn");
+showNewTaskInput.addEventListener("click", inputNewTask);
 
-document.querySelector("#add-todo-btn").addEventListener("click", addTodo);
+// document.querySelector("#add-todo-btn").addEventListener("click", addTodo);
 
 //---- option for task
 function moreOptionInput() {
@@ -253,6 +252,7 @@ function inputNewTask() {
             <button
               class="font-semibold text-xs w-[40%] text-[#FFFFFF] dark:text-[#FFFFFF] bg-[#007BFF] dark:bg-[#002247] rounded-md px-1 py-4 opacity-60"
               onclick="addTodo()"
+              id="add-todo-btn"
             >
               اضافه کردن تسک
             </button>
@@ -426,6 +426,9 @@ function addTodo() {
 
   todos.push(todo);
   console.log(todo);
+  title.value = "";
+  descriptionTask.value = "";
+  showNewTaskInput.classList.add("hidden");
   renderTodo();
   // title.innerHTML = "";
   // descriptionTask.innerHTML = "";
@@ -438,112 +441,93 @@ function toggleComplete(id, checked) {
   renderTodo();
 }
 
-// render todo
+function deleteTask(id) {
+  // Find the index and remove the todo
+  const todoIndex = todos.findIndex((t) => t.id === id);
+  if (todoIndex !== -1) {
+    todos.splice(todoIndex, 1);
+    renderTodo();
+  }
+}
+
+// Fix the renderTodo function - corrected the HTML structure
 function renderTodo() {
-  console.log("object");
+  console.log("Rendering todos");
   localStorage.setItem("todos", JSON.stringify(todos));
   const ulTask = document.querySelector("#uncompleted-tasks");
   const ulCompletedTask = document.querySelector("#completed-task");
 
+  if (!ulTask || !ulCompletedTask) return;
+
   ulTask.innerHTML = "";
   ulCompletedTask.innerHTML = "";
+
   todos.forEach((task) => {
-    console.log("t");
     const todoHtml = `
-      <li
-        class="w-[328px] md:w-full rounded-xl border flex justify-between px-4 py-3 md:py-6 md:px-5 bg-[#FFFFFF] dark:border-none dark:bg-[#091120] border-[#E9E9E9] border-r-[${
-          task.priority?.color
-        }] border-r-4 mx-auto"
-      >
+      <li class="w-[328px] md:w-[70%] rounded-xl border flex justify-between px-4 py-3 md:py-6 md:px-5 bg-[#FFFFFF] border-[#E9E9E9] border-r-4"
+          style="border-right-color: ${task.priority?.color || "#E9E9E9"}">
         <div class="flex md:gap-4 flex-col">
           <div class="flex flex-col gap-2 md:flex-row">
             <div class="flex flex-row gap-3 w-full">
               <input type="checkbox" ${task.isCompleted ? "checked" : ""}
-              onchange="toggleComplete('${task.id}', this.checked)"
-              class="rounded-[5px] border-[#CCCCCC] accent-[#007BFF]" />
-
-              <h3 class="font-bold md:text-[16px] text-[#242424] dark:text-[#FFFFFF]">
+                onchange="toggleComplete('${task.id}', this.checked)"
+                class="rounded-[5px] border-[#CCCCCC] accent-[#007BFF]" />
+              <h3 class="font-bold md:text-[16px] text-[#242424] ${
+                task.isCompleted ? "line-through opacity-50" : ""
+              }">
                 ${task.title}
               </h3>
             </div>
-            <div
-              class="mr-3 w-[60%] md:w-1/2 rounded-[4px] bg-[${
-                task.priority?.bg
-              }] px-2 py-1"
-            >
-              <p
-                class="font-semibold text-[10px] text-center text-[${
-                  task.priority?.color
-                }]"
-              >
-                ${task.priority?.label ?? ""}
+            ${
+              task.priority
+                ? `
+            <div class="mr-3 w-1/3 md:w-1/2 rounded-[4px] px-2 py-1"
+                 style="background-color: ${task.priority.bg}">
+              <p class="font-semibold text-[10px] text-center"
+                 style="color: ${task.priority.color}">
+                ${task.priority.label}
               </p>
             </div>
+            `
+                : ""
+            }
           </div>
-
-          <p class="font-normal md:text-sm text-[#727272] dark:text-[#848890]">
+          <p class="font-normal md:text-sm text-[#727272] ${
+            task.isCompleted ? "opacity-50" : ""
+          }">
             ${task.description}
           </p>
         </div>
 
         <div class="flex flex-col justify-evenly items-end">
-          <button onclick="moreOptionInput()">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-5 dark:text-[#FFFFFF]"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
-              />
+          <button class="more-option-btn" data-task-id="${task.id}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                 stroke-width="1.5" stroke="currentColor" class="size-5">
+              <path stroke-linecap="round" stroke-linejoin="round" 
+                    d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
             </svg>
           </button>
 
-          <div
-            class="w-fit rounded-lg border hidden flex-row-reverse divide-x divide-[#EBEDEF] p-2 mt-2 shadow-add bg-white border-[#EBEDEF]"
-            id="option"
-          >
-            <button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-8 px-2 text-[#5C5F61]"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
-                />
+          <div class="option-menu w-fit rounded-lg border hidden flex-row-reverse divide-x divide-[#EBEDEF] p-2 mt-2 shadow-add bg-white border-[#EBEDEF]">
+            <button class="edit-btn" data-task-id="${task.id}">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                   stroke-width="1.5" stroke="currentColor" class="size-8 px-2 text-[#5C5F61]">
+                <path stroke-linecap="round" stroke-linejoin="round" 
+                      d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
               </svg>
             </button>
-            <button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-8 px-2 text-[#5C5F61]"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
-                />
+            <button class="delete-btn" data-task-id="${task.id}">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                   stroke-width="1.5" stroke="currentColor" class="size-8 px-2 text-[#5C5F61]">
+                <path stroke-linecap="round" stroke-linejoin="round" 
+                      d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
               </svg>
             </button>
           </div>
         </div>
       </li>
     `;
+
     if (task.isCompleted) {
       ulCompletedTask.insertAdjacentHTML("afterbegin", todoHtml);
     } else {
@@ -552,47 +536,160 @@ function renderTodo() {
   });
 }
 
-// function renderTodo() {
-//   localStorage.setItem("todos", JSON.stringify(todos));
+// Improved event delegation for better performance and reliability
+document.addEventListener("click", function (e) {
+  // Handle more options button
+  if (e.target.closest(".more-option-btn")) {
+    e.preventDefault();
+    e.stopPropagation();
 
-//   const ulTask = document.querySelector("#uncompleted-tasks");
-//   const ulCompletedTask = document.querySelector("#completed-task");
+    const moreOptionBtn = e.target.closest(".more-option-btn");
+    const optionMenu = moreOptionBtn.nextElementSibling;
 
-//   ulTask.innerHTML = "";
-//   ulCompletedTask.innerHTML = "";
+    if (optionMenu && optionMenu.classList.contains("option-menu")) {
+      // Close all other menus first
+      document.querySelectorAll(".option-menu:not(.hidden)").forEach((menu) => {
+        if (menu !== optionMenu) {
+          menu.classList.add("hidden");
+        }
+      });
 
-//   todos.forEach((task) => {
-//     const todoHtml = `
-//       <li class="w-[328px] md:w-[70%] rounded-xl border flex justify-between px-4 py-3
-//                  md:py-6 md:px-5 bg-[#FFFFFF] border-[#E9E9E9] border-r-[${task.priority?.color}] border-r-4">
-//         <div class="flex md:gap-4 flex-col">
-//           <div class="flex flex-col md:flex-row">
-//             <div class="flex flex-row gap-3 w-full">
-//               <input
-//                 type="checkbox"
-//                 ${task.isCompleted ? "checked" : ""}
-//                 onchange="toggleComplete('${task.id}', this.checked)"
-//                 class="rounded-[5px] border-[#CCCCCC]"
-//               />
-//               <h3 class="font-bold md:text-[16px] text-[#242424] ${task.isCompleted ? "line-through" : ""}">
-//                 ${task.title}
-//               </h3>
-//             </div>
-//             <div class="mr-3 w-1/3 md:w-1/2 rounded-[4px] bg-[${task.priority?.bg}] px-2 py-1">
-//               <p class="font-semibold text-[10px] text-center text-[${task.priority?.color}]">
-//                 ${task.priority?.label ?? ""}
-//               </p>
-//             </div>
-//           </div>
-//           <p class="font-normal md:text-sm text-[#727272]">${task.description}</p>
-//         </div>
-//       </li>
-//     `;
+      // Toggle current menu
+      optionMenu.classList.toggle("hidden");
+    }
+    return;
+  }
 
-//     if (task.isCompleted) {
-//       ulCompletedTask.insertAdjacentHTML("afterbegin", todoHtml);
-//     } else {
-//       ulTask.insertAdjacentHTML("afterbegin", todoHtml);
-//     }
-//   });
-// }
+  // Handle delete button
+  if (e.target.closest(".delete-btn")) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const deleteBtn = e.target.closest(".delete-btn");
+    const taskId = deleteBtn.getAttribute("data-task-id");
+
+    if (taskId) {
+      // Optional: Add confirmation dialog
+      if (confirm("آیا مطمئن هستید که می‌خواهید این تسک را حذف کنید؟")) {
+        deleteTask(taskId);
+      }
+    }
+
+    // Close the menu
+    const optionMenu = e.target.closest(".option-menu");
+    if (optionMenu) {
+      optionMenu.classList.add("hidden");
+    }
+    return;
+  }
+
+  // Handle edit button (if you want to implement edit functionality)
+  if (e.target.closest(".edit-btn")) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const editBtn = e.target.closest(".edit-btn");
+    const taskId = editBtn.getAttribute("data-task-id");
+
+    if (taskId) {
+      // Implement edit functionality here
+      console.log("Edit task:", taskId);
+      editTask(taskId);
+    }
+
+    // Close the menu
+    const optionMenu = e.target.closest(".option-menu");
+    if (optionMenu) {
+      optionMenu.classList.add("hidden");
+    }
+    return;
+  }
+
+  function editTask(taskId) {
+    const todo = todos.find((t) => t.id === taskId);
+    if (!todo) return;
+
+    document.querySelector("#input-title").value = todo.title;
+    document.querySelector("#input-discription").value = todo.description;
+
+    todos.forEach((t) => (t.isEditing = false));
+    todo.isEditing = true;
+
+    // نمایش فرم اگر مخفی است
+    const inputContainer = document.querySelector("#input-container");
+    inputContainer.classList.remove("hidden");
+  }
+
+  function addTodo() {
+    const titleInput = document.querySelector("#input-title");
+    const descInput = document.querySelector("#input-discription");
+
+    const title = titleInput.value.trim();
+    const description = descInput.value.trim();
+
+    if (!title) {
+      alert("عنوان تسک نمیتونه خالی باشه!");
+      return;
+    }
+
+    // اگر تسک در حالت ویرایش است، بروزرسانی کن
+    const editingTask = todos.find((t) => t.isEditing);
+    if (editingTask) {
+      editingTask.title = title;
+      editingTask.description = description;
+      editingTask.isEditing = false;
+    } else {
+      // اضافه کردن تسک جدید
+      todos.push({
+        id: Date.now().toString(),
+        title,
+        description,
+        isCompleted: false,
+        isEditing: false,
+      });
+    }
+
+    renderTodo();
+    titleInput.value = "";
+    descInput.value = "";
+  }
+
+  // Close menus when clicking outside
+  if (
+    !e.target.closest(".option-menu") &&
+    !e.target.closest(".more-option-btn")
+  ) {
+    document.querySelectorAll(".option-menu").forEach((menu) => {
+      menu.classList.add("hidden");
+    });
+  }
+});
+
+// Fix toggleComplete function
+function toggleComplete(id, checked) {
+  const todo = todos.find((t) => t.id === id);
+  if (!todo) return;
+
+  todo.isCompleted = checked;
+  renderTodo();
+}
+
+// Load todos from localStorage on page load
+document.addEventListener("DOMContentLoaded", function () {
+  const savedTodos = localStorage.getItem("todos");
+  if (savedTodos) {
+    try {
+      const parsedTodos = JSON.parse(savedTodos);
+      todos.push(...parsedTodos);
+      renderTodo();
+    } catch (error) {
+      console.error("Error loading todos from localStorage:", error);
+    }
+  }
+});
+
+// Clear completed tasks function (bonus feature)
+function clearCompletedTasks() {
+  todos = todos.filter((todo) => !todo.isCompleted);
+  renderTodo();
+}
