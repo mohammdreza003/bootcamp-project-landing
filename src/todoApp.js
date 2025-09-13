@@ -1,3 +1,155 @@
+// --- تاریخ ---
+// --- تاریخ ---
+const today = new Date();
+const weekdays = [
+  "یکشنبه",
+  "دوشنبه",
+  "سه‌شنبه",
+  "چهارشنبه",
+  "پنج‌شنبه",
+  "جمعه",
+  "شنبه",
+];
+const months = [
+  "فروردین",
+  "اردیبهشت",
+  "خرداد",
+  "تیر",
+  "مرداد",
+  "شهریور",
+  "مهر",
+  "آبان",
+  "آذر",
+  "دی",
+  "بهمن",
+  "اسفند",
+];
+
+const dayOfWeek = weekdays[today.getDay()];
+const day = today.getDate();
+const month = months[today.getMonth()];
+const year = today.getFullYear();
+
+// همه المان‌های دارای کلاس date را بروز می‌کنیم
+const dateDivs = document.querySelectorAll(".date");
+dateDivs.forEach((div) => {
+  div.textContent = `امروز، ${dayOfWeek}، ${day} ${month} ${year}`;
+});
+
+// گرفتن همه عکس‌ها و نام‌ها
+const profileImgs = document.querySelectorAll(".profileImg");
+const userNames = document.querySelectorAll(".userName");
+const fileInput = document.getElementById("fileInput");
+
+const defaultImg =
+  "../assets/images/68ff308177dd64be56b77b645113191065f1ff7b.png";
+const secondImg =
+  "../assets/images/1ef977352844928c2e1c8a939116214d671a4aa4.png";
+
+let isDefault = true;
+let customImageSelected = false;
+
+// تابع تغییر عکس و نام
+function toggleProfile() {
+  if (customImageSelected) return;
+  profileImgs.forEach((img) => (img.src = isDefault ? secondImg : defaultImg));
+  userNames.forEach(
+    (name) => (name.textContent = isDefault ? "سلام، علی" : "سلام، رویا")
+  );
+  isDefault = !isDefault;
+}
+
+// تابع بازگرداندن پیش‌فرض
+function resetProfile() {
+  profileImgs.forEach((img) => (img.src = defaultImg));
+  userNames.forEach((name) => (name.textContent = "سلام، رویا"));
+  isDefault = true;
+  customImageSelected = false;
+}
+
+// افزودن event listener به همه عکس‌ها
+profileImgs.forEach((img) => {
+  img.addEventListener("click", toggleProfile);
+  img.addEventListener("dblclick", resetProfile);
+  img.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    fileInput.value = null;
+    fileInput.click();
+  });
+});
+
+// وقتی کاربر عکس انتخاب می‌کند
+fileInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const url = URL.createObjectURL(file);
+    profileImgs.forEach((img) => (img.src = url));
+    customImageSelected = true;
+  }
+});
+
+// کلیک راست روی نام → تغییر نام دلخواه
+userNames.forEach((name) => {
+  name.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    const newName = prompt(
+      "نام خود را وارد کنید:",
+      name.textContent.replace("سلام، ", "")
+    );
+    if (newName !== null && newName.trim() !== "") {
+      userNames.forEach((n) => (n.textContent = "سلام، " + newName));
+    }
+  });
+});
+
+const lightButton = document.getElementById("lightBtn");
+const darkButton = document.getElementById("darkBtn");
+const aside = document.getElementById("mobileNav"); // گرفتن aside
+
+// حالت روشن
+lightButton.addEventListener("click", () => {
+  document.documentElement.classList.remove("dark"); // یا document.body
+});
+
+// حالت تاریک
+darkButton.addEventListener("click", () => {
+  document.documentElement.classList.add("dark"); // یا document.body
+});
+
+const closeBtn = document.getElementById("closeAside");
+const openBtn = document.getElementById("openAside");
+
+closeBtn.addEventListener("click", () => {
+  aside.style.display = "none";
+  aside.classList.add("hidden");
+});
+
+openBtn.addEventListener("click", () => {
+  aside.style.display = "flex";
+  aside.classList.remove("hidden");
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 1024) {
+    aside.classList.add("hidden"); // اضافه کردن کلاس مخفی
+    aside.style.display = "none"; // مخفی کردن از طریق style
+  }
+});
+
+// گرفتن دکمه‌ها
+const dlightBtn = document.getElementById("dlightBtn");
+const ddarkBtn = document.getElementById("ddarkBtn");
+
+// فعال کردن حالت روشن
+dlightBtn.addEventListener("click", () => {
+  document.documentElement.classList.remove("dark"); // یا document.body.classList
+});
+
+// فعال کردن حالت تاریک
+ddarkBtn.addEventListener("click", () => {
+  document.documentElement.classList.add("dark");
+});
+
 const todos = [];
 
 document
@@ -30,8 +182,8 @@ function inputNewTask() {
   }
 
   const wrapper = document.createElement("div");
-  wrapper.classList.add("w-full")
- 
+  wrapper.classList.add("w-full");
+
   wrapper.innerHTML = `
     <article
           class="border border-[#E9E9E9] py-4 flex  flex-col gap-4  bg-[#FFFFFF] shadow-add rounded-xl w-full  "
@@ -113,8 +265,6 @@ function inputNewTask() {
 
   image.insertAdjacentElement("beforebegin", inputDiv);
 }
-
-
 
 function showTag() {
   const tagBtn = document.querySelector("#tag-btn");
@@ -282,12 +432,11 @@ function addTodo() {
 }
 
 function toggleComplete(id, checked) {
-  const todo = todos.find(t => t.id === id);
+  const todo = todos.find((t) => t.id === id);
   if (!todo) return;
   todo.isCompleted = checked;
   renderTodo();
 }
-
 
 // render todo
 function renderTodo() {
