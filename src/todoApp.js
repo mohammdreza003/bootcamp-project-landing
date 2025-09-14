@@ -204,7 +204,7 @@ function inputNewTask() {
               />
             </div>
             <button
-              class="flex border border-[#E9E9E9] dark:border-[#83878F] rounded-[4px] px-2 py-1 mx-4 my-4 md:my-0 gap-1 w-1/6 md:w-1/12"
+              class="flex border border-[#E9E9E9] dark:border-[#83878F] rounded-[4px] px-2 py-1 mx-4 my-4 md:my-0 gap-1 w-1/6 md:w-[20%]"
               id="tag-btn"
               onclick="showTag()"
             >
@@ -276,7 +276,7 @@ function showTag() {
   }
 
   wrapper.innerHTML = `  <div
-        class="w-[60%] md:w-[25%] h-[43px] rounded-lg border dark:border-[#293242]  p-4 flex justify-center items-center gap-4 bg-[#FFFFFF] dark:bg-[#0B192D] shadow-add mx-4 mb-6"
+        class="w-[60%] md:w-[55%] h-[43px] rounded-lg border dark:border-[#293242]  p-4 flex justify-center items-center gap-4 bg-[#FFFFFF] dark:bg-[#0B192D] shadow-add mx-4 mb-6"
         id="tags-div"
       >
         <button
@@ -481,7 +481,7 @@ function renderTodo() {
             ${
               task.priority
                 ? `
-            <div class="mr-3 w-1/3 md:w-1/2 rounded-[4px] px-2 py-1"
+            <div class="mr-3 w-12 md:w-1/2 rounded-[4px] px-2 py-1"
                  style="background-color: ${task.priority.bg}">
               <p class="font-semibold text-[10px] text-center"
                  style="color: ${task.priority.color}">
